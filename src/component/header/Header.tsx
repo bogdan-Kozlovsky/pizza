@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import s from 'component/header/style.module.scss';
 
 export const Header = () => (
-  <div className="container">
+  <div>
     <div className={s.header__wrapper}>
       <Link to="/">
         <img className={s.header__logo} src="/images/icon/logo.svg" alt="" />
