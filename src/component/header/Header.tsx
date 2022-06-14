@@ -3,11 +3,12 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 import s from 'component/header/style.module.scss';
+import { PathNavigation } from 'enums/navigation';
 
 export const Header = () => (
   <div>
     <div className={s.header__wrapper}>
-      <Link to="/">
+      <Link to={PathNavigation.PRODUCT}>
         <img className={s.header__logo} src="/images/icon/logo.svg" alt="" />
       </Link>
 
@@ -20,7 +21,7 @@ export const Header = () => (
       </label>
 
       <div>
-        <Link className={`btn ${s.header__card_link}`} to="/card">
+        <Link className={`btn ${s.header__card_link}`} to={PathNavigation.SHOPPING_CART}>
           <span className={s.header__card_wrapper}>
             <span>580</span>
             <img

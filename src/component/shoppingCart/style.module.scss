@@ -1,0 +1,100 @@
+@import 'src/assets/variables.scss';
+
+.shoppingCart {
+  letter-spacing: 0.01em;
+  min-height: 626px;
+  max-width: 821px;
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  &__wrapper_top {
+    margin-bottom: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 30px;
+    border-bottom: 1px solid $border-color;
+  }
+
+  &__title {
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 39px;
+    color: $black-color;
+    display: flex;
+    align-items: center;
+  }
+
+  &__icon {
+    width: 29px;
+    height: 29px;
+    margin-right: 17px;
+  }
+
+  &__subtitle {
+    display: flex;
+    align-items: center;
+    color: $opacity-color;
+  }
+
+  &__wrapper {
+    max-height: 395px;
+    overflow-y: auto;
+  }
+
+  &__wrapper_description {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+  }
+
+  &__span {
+    font-size: 22px;
+    line-height: 27px;
+    color: $black-color;
+  }
+
+  &__black {
+    font-weight: 800;
+  }
+
+  &__orange {
+    color: $btn-color;
+    font-weight: 800;
+  }
+
+  &__wrapper_btn {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__btn_return {
+    padding: 18px 29px;
+    display: flex;
+    align-items: center;
+    border: 1px solid #D3D3D3;
+    border-radius: 30px;
+
+    img {
+      margin-right: 11px;
+    }
+  }
+
+  &__btn {
+    border-radius: 30px;
+    padding: 18px 29px;
+    background-color: $btn-color;
+    color: $while-color;
+    border: none;
+    transition: all 0.3s ease-in;
+
+    &:hover {
+      background-color: $background-color-hover;
+    }
+  }
+}

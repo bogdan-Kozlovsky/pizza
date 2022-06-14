@@ -1,0 +1,69 @@
+@import 'src/assets/variables.scss';
+
+.shoppingCartItem {
+  font-size: 22px;
+  line-height: 27px;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  color: $black-color;
+  margin-bottom: 30px;
+  padding-bottom: 30px;
+
+  &:not(:last-child) {
+    border-bottom: 1px solid $border-color;
+  }
+
+  &__wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__img {
+    width: 80px;
+    height: 80px;
+    margin-right: 15px;
+    object-fit: cover;
+  }
+
+  &__wrapper_description {
+    margin: 0 5px;
+  }
+
+  &__text {
+    margin-bottom: 3px;
+  }
+
+  &__description {
+    font-size: 18px;
+    line-height: 22px;
+    color: $opacity-color;
+  }
+
+  &__counts {
+    display: flex;
+    align-items: center;
+    margin: 0 5px;
+  }
+
+  &__icon {
+    cursor: pointer;
+    width: 32px;
+    height: 32px;
+  }
+
+  &__count {
+    display: inline-block;
+    margin: 0 12px;
+  }
+
+  &__price {
+    margin: 0 5px;
+  }
+
+  &__btn {
+    border: none;
+    background-color: transparent;
+  }
+
+}
