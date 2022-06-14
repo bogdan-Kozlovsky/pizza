@@ -1,0 +1,82 @@
+@import './src/global.scss';
+
+.header {
+
+  &__wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding-bottom: 40px;
+    border-bottom: 1px solid $border-color;
+  }
+
+  &__link {
+  }
+
+  &__logo {
+    margin-right: 15px;
+  }
+
+  &__label {
+    max-width: 400px;
+    width: 100%;
+    position: relative;
+  }
+
+  &__input {
+    border: 1px solid rgba(0, 0, 0, .1);
+    border-radius: 10px;
+    font-size: 16px;
+    padding: 12px 20px 12px 42px;
+    width: 100%;
+    transition: all 0.4s ease-in;
+
+    &:hover {
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    }
+  }
+
+  &__search_btn {
+    border: none;
+    background-color: transparent;
+  }
+
+  &__search_icon {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 10px;
+    width: 15px;
+  }
+
+  // card
+  &__card_link {
+    color: $while-color;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 30px;
+
+    &:hover{
+      background-color: $background-color-hover;
+    }
+  }
+
+  &__card_wrapper {
+    display: inline-block;
+    margin: 0 13px
+  }
+
+  &__card_icon {
+    margin: 0 5px;
+    width: 15px;
+  }
+
+  &__card_decor {
+    width: 1px;
+    height: 25px;
+    background: rgba(255, 255, 255, 0.25);
+  }
+}
