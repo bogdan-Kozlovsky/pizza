@@ -1,31 +1,30 @@
 import React from 'react';
 
 import { Button } from 'common/button/Button';
+import { SizeItem } from 'component/product/productItem/sizeItem/SizeItem';
 import s from 'component/product/productItem/style.module.scss';
+import { TypeItem } from 'component/product/productItem/typeItem/TypeItem';
+import { ProductItemPropsType } from 'component/product/types';
 
-export const ProductItem = () => (
-  <div className={s.productItem}>
-    <img className={s.productItem__img} src="/images/1.jpg" alt="images" />
-    <h3 className={s.productItem__title}>Чизбургер-пицца</h3>
-    <div className={s.productItem__list}>
-      <ul className={`${s.productItem__list_box} ${s.productItem__list_top}`}>
-        <li className={s.productItem__item_top}>тонкое</li>
-        <li className={`${s.productItem__item_top} ${s.productItem__list_active}`}>
-          традиционное
-        </li>
-      </ul>
-      <ul className={s.productItem__list_box}>
-        <li className={`${s.productItem__item_bottom} ${s.productItem__list_active}`}>
-          26 см.
-        </li>
-        <li className={s.productItem__item_bottom}>30 см.</li>
-        <li className={s.productItem__item_bottom}>40 см.</li>
-      </ul>
-    </div>
+export const ProductItem = ({ item }: ProductItemPropsType) => {
+  const { imageUrl, name, price, sizes, types } = item;
 
-    <div className={s.productItem__wrapper}>
-      <span className={s.productItem__price}>от 395 Ua</span>
-      <Button />
+  return (
+    <div className={s.productItem}>
+      <img src={imageUrl} alt="images" />
+
+      <h3>{name}</h3>
+
+      <div className={s.productItem__list}>
+        <TypeItem types={types} />
+
+        <SizeItem sizes={sizes} />
+      </div>
+
+      <div className={s.productItem__wrapper}>
+        <span className={s.productItem__price}>от {price} Ua</span>
+        <Button />
+      </div>
     </div>
-  </div>
-);
+  );
+};

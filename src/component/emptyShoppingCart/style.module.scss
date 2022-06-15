@@ -1,0 +1,45 @@
+@import 'src/assets/variables.scss';
+
+.emptyShoppingCart {
+  min-height: 626px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  max-width: 577px;
+  padding: 0 15px;
+  width: 100%;
+  letter-spacing: 0.01em;
+
+  &__title {
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 39px;
+    color: $black-color;
+    margin-bottom: 10px;
+  }
+
+  &__text {
+    text-align: center;
+    font-size: 18px;
+    color: $opacity-color;
+  }
+
+  &__img {
+    max-width: 300px;
+    object-fit: cover;
+    height: 255px;
+    display: inline-block;
+    margin: 47px 0 74px 0;
+  }
+
+  &__link{
+    padding: 13px 20px;
+    background-color: $black-color;
+    font-weight: 700;
+    font-size: 16px;
+    color: $while-color;
+    border-radius: 30px;
+  }
+}

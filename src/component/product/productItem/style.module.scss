@@ -6,14 +6,14 @@
   width: 100%;
   min-height: 459px;
 
-  &__img {
+  > img {
     margin-bottom: 11px;
     max-width: 259.12px;
     height: 260px;
     object-fit: cover;
   }
 
-  &__title {
+  > h3 {
     margin-bottom: 22px;
     font-weight: 800;
     font-size: 20px;
