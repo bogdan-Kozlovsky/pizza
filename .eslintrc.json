@@ -32,7 +32,6 @@
     "no-magic-numbers": "off",
     "default-param-last": "off",
     "no-use-before-define": "off",
-    "no-array-index-key": "off",
     "no-multiple-empty-lines": [
       "warn",
       {
