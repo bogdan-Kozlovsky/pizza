@@ -1,17 +1,16 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 import { Modal } from 'component/sort/modal/Modal';
 import s from 'component/sort/style.module.scss';
+import { SortPropsType } from 'component/sort/types';
 
 const categories = ['Все', 'Мясные', 'Вегетарианская', 'Гриль', 'Острые', 'Закрытые'];
 
-const firstElement = 0;
-
-export const Sort = () => {
-  const [activeItem, setActiveItem] = useState<number>(firstElement);
+export const Sort = (props: SortPropsType) => {
+  const { itemSortValue, setItemSortValue, setItemSortModal, itemSortModal } = props;
 
   const onSetActiveClick = (index: number) => {
-    setActiveItem(index);
+    setItemSortValue(index);
   };
   return (
     <div className={`${s.sort__wrapper} ${s.sort}`}>
@@ -20,14 +19,14 @@ export const Sort = () => {
           <li
             role="presentation"
             key={`${categoryName + index}`}
-            className={`${s.sort__item} ${activeItem === index ? s.sort__active : ''}`}
+            className={`${s.sort__item} ${itemSortValue === index ? s.sort__active : ''}`}
             onClick={() => onSetActiveClick(index)}
           >
             {categoryName}
           </li>
         ))}
       </ul>
-      <Modal />
+      <Modal itemSortModal={itemSortModal} setItemSortModal={setItemSortModal} />
     </div>
   );
 };

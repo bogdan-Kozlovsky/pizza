@@ -2,20 +2,28 @@ import React, { useState } from 'react';
 
 import { ModalItem } from 'component/sort/modal/modalitem/ModalItem';
 import s from 'component/sort/modal/style.module.scss';
+import { ActiveItemSortModalType, ModalPropsType } from 'component/sort/modal/types';
 
-const FIRST_INDEX = 0;
-const items = ['популярности', 'цене', 'алфавиту'];
+// const items = ['популярности', 'цене', 'алфавиту'];
+const items = [
+  { name: 'популярности', sortProperty: 'rating' },
+  { name: 'популярности-', sortProperty: '-rating' },
+  { name: 'цене', sortProperty: 'price' },
+  { name: 'цене-', sortProperty: '-price' },
+  { name: 'алфавиту', sortProperty: 'title' },
+];
 
-export const Modal = () => {
+export const Modal = (props: ModalPropsType) => {
+  const { setItemSortModal, itemSortModal } = props;
+
   const [isVisible, setIsVisible] = useState<boolean>(false);
-  const [activeItem, setActiveItem] = useState<number>(FIRST_INDEX);
 
   const onVisibleClick = () => {
     setIsVisible(!isVisible);
   };
 
-  const onActiveClick = (index: number) => {
-    setActiveItem(index);
+  const onActiveClick = (sortProperty: ActiveItemSortModalType) => {
+    setItemSortModal(sortProperty);
     setIsVisible(false);
   };
 
@@ -29,11 +37,15 @@ export const Modal = () => {
       <p className={s.modal__description}>Сортировка по:</p>
 
       <span onClick={onVisibleClick} role="presentation" className={s.modal__active}>
-        {items[activeItem]}
+        {itemSortModal.name}
       </span>
 
       {isVisible && (
-        <ModalItem items={items} onActiveClick={onActiveClick} activeItem={activeItem} />
+        <ModalItem
+          items={items}
+          onActiveClick={onActiveClick}
+          activeItemModal={itemSortModal}
+        />
       )}
     </div>
   );

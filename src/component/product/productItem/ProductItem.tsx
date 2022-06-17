@@ -14,16 +14,17 @@ export const ProductItem = ({ item }: ProductItemPropsType) => {
       <img src={imageUrl} alt="images" />
 
       <h3>{name}</h3>
+      <div>
+        <div className={s.productItem__list}>
+          <TypeItem types={types} />
 
-      <div className={s.productItem__list}>
-        <TypeItem types={types} />
+          <SizeItem sizes={sizes} />
+        </div>
 
-        <SizeItem sizes={sizes} />
-      </div>
-
-      <div className={s.productItem__wrapper}>
-        <span className={s.productItem__price}>от {price} Ua</span>
-        <Button />
+        <div className={s.productItem__wrapper}>
+          <span className={s.productItem__price}>от {price} Ua</span>
+          <Button />
+        </div>
       </div>
     </div>
   );

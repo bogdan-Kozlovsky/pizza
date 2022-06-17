@@ -5,6 +5,8 @@
   max-width: 280px;
   width: 100%;
   min-height: 459px;
+  display: flex;
+  flex-direction: column;
 
   > img {
     margin-bottom: 11px;
@@ -14,11 +16,13 @@
   }
 
   > h3 {
+    text-align: center;
     margin-bottom: 22px;
     font-weight: 800;
     font-size: 20px;
     line-height: 24px;
     color: $black-color;
+    flex-grow: 1;
   }
 
   &__list {

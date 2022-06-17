@@ -58,8 +58,9 @@
     align-items: center;
     justify-content: space-between;
     border-radius: 30px;
+    margin: 0 5px;
 
-    &:hover{
+    &:hover {
       background-color: $background-color-hover;
     }
   }
@@ -78,5 +79,32 @@
     width: 1px;
     height: 25px;
     background: rgba(255, 255, 255, 0.25);
+  }
+}
+
+@media (max-width: 1090px) {
+  .header {
+    &__label {
+      order: 2;
+      max-width: 100%;
+      margin-top: 20px;
+    }
+  }
+}
+
+
+@media (max-width: 680px) {
+  .header {
+    &__logo {
+      max-width: 220px;
+    }
+
+    &__card_link{
+      padding: 7px 3px;
+    }
+  }
+
+  .btn {
+
   }
 }
