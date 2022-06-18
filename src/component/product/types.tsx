@@ -12,3 +12,7 @@ export type ProductItemType = {
 export type ProductItemPropsType = {
   item: ProductItemType;
 };
+
+export type ProductPropsType = {
+  searchValue: string;
+};
