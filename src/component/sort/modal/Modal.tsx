@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
 
+import { useDispatch } from 'react-redux';
+
 import { ModalItem } from 'component/sort/modal/modalitem/ModalItem';
 import s from 'component/sort/modal/style.module.scss';
 import { ActiveItemSortModalType, ModalPropsType } from 'component/sort/modal/types';
+import { setItemSortValue } from 'store/slices/filter';
 
-// const items = ['популярности', 'цене', 'алфавиту'];
 const items = [
   { name: 'популярности', sortProperty: 'rating' },
   { name: 'популярности-', sortProperty: '-rating' },
@@ -14,7 +16,9 @@ const items = [
 ];
 
 export const Modal = (props: ModalPropsType) => {
-  const { setItemSortModal, itemSortModal } = props;
+  const { itemSortModal } = props;
+
+  const dispatch = useDispatch();
 
   const [isVisible, setIsVisible] = useState<boolean>(false);
 
@@ -23,7 +27,7 @@ export const Modal = (props: ModalPropsType) => {
   };
 
   const onActiveClick = (sortProperty: ActiveItemSortModalType) => {
-    setItemSortModal(sortProperty);
+    dispatch(setItemSortValue(sortProperty));
     setIsVisible(false);
   };
 
