@@ -7,7 +7,11 @@ import { HeaderPropsType } from 'component/header/types';
 import { PathNavigation } from 'enums/navigation';
 
 export const Header = (props: HeaderPropsType) => {
-  const { searchValue, onChange } = props;
+  const { searchValue, setValue, onChange } = props;
+
+  const onClearClick = () => {
+    setValue('');
+  };
   return (
     <div>
       <div className={s.header__wrapper}>
@@ -23,6 +27,11 @@ export const Header = (props: HeaderPropsType) => {
             className={s.header__input}
             type="text"
           />
+          {searchValue && (
+            <p className={s.header__clear} role="presentation" onClick={onClearClick}>
+              X
+            </p>
+          )}
           <button className={s.header__search_btn} type="button">
             <img className={s.header__search_icon} src="/images/icon/search.svg" alt="" />
           </button>

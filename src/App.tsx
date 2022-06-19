@@ -10,16 +10,16 @@ import { PathNavigation } from 'enums/navigation';
 import { useInput } from 'hooks/useInput';
 import useDebounce from 'utils/useDebounce';
 
-const WAITING_TIME = 700;
+const WAITING_TIME = 400;
 
 export const App = () => {
-  const { onChange, value } = useInput('');
+  const { onChange, value, setValue } = useInput('');
   const searchValue = useDebounce(value, WAITING_TIME);
 
   return (
     <div className="wrapper">
       <div className="container">
-        <Header searchValue={value} onChange={onChange} />
+        <Header setValue={setValue} searchValue={value} onChange={onChange} />
 
         <Routes>
           <Route

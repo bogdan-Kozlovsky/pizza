@@ -1,5 +1,8 @@
 import React, { useEffect, useState } from 'react';
 
+import axios from 'axios';
+
+import { axiosConfig } from 'api/config';
 import { Pagination } from 'component/pagination/Pagination';
 import { ProductItem } from 'component/product/productItem/ProductItem';
 import s from 'component/product/style.module.scss';
@@ -30,11 +33,11 @@ export const Product = (props: ProductPropsType) => {
 
   useEffect(() => {
     setIsLoading(true);
-    fetch(
-      `https://62aa1363371180affbced5e4.mockapi.io/items?${search}${isCategory}&sortBy=${isSortBy}&order=${isOrder}&page=${activeIndexPagination}&limit=4`,
-    )
-      .then(response => response.json())
-      .then(json => setItems(json))
+    axios
+      .get<ProductItemType[]>(
+        `${axiosConfig.baseURL}?${search}${isCategory}&sortBy=${isSortBy}&order=${isOrder}&page=${activeIndexPagination}&limit=4`,
+      )
+      .then(({ data }) => setItems(data))
       .finally(() => setIsLoading(false));
   }, [itemCategoryValue, itemSortModal, searchValue, activeIndexPagination]);
 
