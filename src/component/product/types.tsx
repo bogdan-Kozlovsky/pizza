@@ -11,7 +11,7 @@ export type ProductItemType = {
 
 export type ProductItemPropsType = {
   item: ProductItemType;
-  id:number
+  id: number;
 };
 
 export type ProductPropsType = {
