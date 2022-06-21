@@ -1,9 +1,11 @@
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
 
+import cart from 'store/slices/cart';
 import filter from 'store/slices/filter';
 
 const rootReducer = combineReducers({
   filter,
+  cart,
 });
 
 export const store = configureStore({

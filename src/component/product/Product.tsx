@@ -17,7 +17,7 @@ const INITIAL_VALUES = 1;
 export const Product = (props: ProductPropsType) => {
   const { searchValue } = props;
 
-  const itemCategoryValue = useAppSelector(state => state.filter.itemCategoryIndex);
+  const itemCategoryIndex = useAppSelector(state => state.filter.itemCategoryIndex);
   const itemSortModal = useAppSelector(state => state.filter.itemSortValue);
 
   const [items, setItems] = useState<ProductItemType[]>([]);
@@ -28,7 +28,7 @@ export const Product = (props: ProductPropsType) => {
   const isSortBy = itemSortModal.sortProperty.replace('-', '');
   const isOrder = itemSortModal.sortProperty.includes('-') ? 'asc' : 'desc';
   const isCategory =
-    itemCategoryValue > FIRST_ELEMENT ? `&category=${itemCategoryValue}` : '';
+    itemCategoryIndex > FIRST_ELEMENT ? `&category=${itemCategoryIndex}` : '';
   const search = searchValue ? `&search=${searchValue}` : '';
 
   useEffect(() => {
@@ -39,7 +39,7 @@ export const Product = (props: ProductPropsType) => {
       )
       .then(({ data }) => setItems(data))
       .finally(() => setIsLoading(false));
-  }, [itemCategoryValue, itemSortModal, searchValue, activeIndexPagination]);
+  }, [itemCategoryIndex, itemSortModal, searchValue, activeIndexPagination]);
 
   return (
     <div>
@@ -49,8 +49,8 @@ export const Product = (props: ProductPropsType) => {
         {isLoading
           ? // eslint-disable-next-line react/no-array-index-key
             [...new Array(items.length)].map((_, index) => <Skeleton key={index} />)
-          : items.map(item => (
-              <ProductItem key={`${item.id + item.imageUrl}`} item={item} />
+          : items.map((item, index) => (
+              <ProductItem key={`${item.id + item.imageUrl}`} item={item} id={index} />
             ))}
       </div>
       <Pagination

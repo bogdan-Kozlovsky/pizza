@@ -64,6 +64,10 @@
   &__btn {
     border: none;
     background-color: transparent;
+
+    &:disabled{
+      color: $opacity-color;
+    }
   }
 
 }

@@ -1,6 +1,7 @@
 @import 'src/assets/variables.scss';
 
 .btn{
+  position: relative;
   padding: 11px 18px;
   background: $while-color;
   border: 1px solid $btn-color;
@@ -12,6 +13,8 @@
 }
 
 .count{
+  position: absolute;
+  right: 6px;
   background-color: $btn-color;
   border-radius: 30px;
   color: #fff;
@@ -24,5 +27,5 @@
 }
 
 .text{
-  padding: 0 5px;
+  padding: 0 15px 0 5px;
 }

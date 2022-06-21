@@ -34,7 +34,10 @@
     margin-right: 17px;
   }
 
-  &__subtitle {
+  &__btn_clear {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
     display: flex;
     align-items: center;
     color: $opacity-color;
@@ -42,6 +45,7 @@
 
   &__wrapper {
     max-height: 395px;
+    min-height: 300px;
     overflow-y: auto;
   }
 

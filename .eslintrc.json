@@ -28,9 +28,9 @@
     "no-param-reassign": "warn",
     "no-alert": "error",
     "no-debugger": "error",
-    "no-plusplus": "error",
+    "no-plusplus": "warn",
     "no-unused-vars": "off",
-    "no-magic-numbers": "off",
+    "no-magic-numbers": "warn",
     "default-param-last": "off",
     "no-use-before-define": "off",
     "no-multiple-empty-lines": [

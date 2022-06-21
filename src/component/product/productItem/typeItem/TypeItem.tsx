@@ -1,13 +1,9 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 import s from 'component/product/productItem/style.module.scss';
 import { TypeItemPropsType } from 'component/product/productItem/typeItem/types';
 
-const FIRST_INDEX = 0;
-
-export const TypeItem = ({ types }: TypeItemPropsType) => {
-  const [activeType, setActiveType] = useState<number>(FIRST_INDEX);
-
+export const TypeItem = ({ types, setActiveType, activeType }: TypeItemPropsType) => {
   const typesValue = ['тонкое', 'традиционное'];
 
   return (

@@ -31,8 +31,12 @@ export const Modal = (props: ModalPropsType) => {
     setIsVisible(false);
   };
 
+  // useEffect(() => {
+  //
+  // }, []);
+
   return (
-    <div className={s.modal}>
+    <div role="presentation" className={s.modal} onClick={e => e.stopPropagation()}>
       <img
         className={`${s.modal__decor} ${isVisible ? s.modal__decor_reverse : ''}`}
         src="/images/icon/arrow.svg"
@@ -46,6 +50,7 @@ export const Modal = (props: ModalPropsType) => {
 
       {isVisible && (
         <ModalItem
+          setIsVisible={setIsVisible}
           items={items}
           onActiveClick={onActiveClick}
           activeItemModal={itemSortModal}

@@ -19,7 +19,6 @@ export const EmptyShoppingCart = () => (
     />
 
     <Link className={s.emptyShoppingCart__link} to={PathNavigation.PRODUCT}>
-      {' '}
       Вернуться назад
     </Link>
   </div>

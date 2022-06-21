@@ -1,14 +1,41 @@
-import React from 'react';
+import React, { useState } from 'react';
+
+import { useDispatch } from 'react-redux';
 
 import { Button } from 'common/button/Button';
 import { SizeItem } from 'component/product/productItem/sizeItem/SizeItem';
 import s from 'component/product/productItem/style.module.scss';
 import { TypeItem } from 'component/product/productItem/typeItem/TypeItem';
 import { ProductItemPropsType } from 'component/product/types';
+import { useAppSelector } from 'hooks/useAppSelector';
+import { addItem } from 'store/slices/cart';
+
+const FIRST_INDEX = 0;
+const typesValue = ['тонкое', 'традиционное'];
 
 export const ProductItem = ({ item }: ProductItemPropsType) => {
-  const { imageUrl, name, price, sizes, types } = item;
+  const { imageUrl, name, price, sizes, types, id } = item;
 
+  const dispatch = useDispatch();
+
+  const [activeType, setActiveType] = useState<number>(FIRST_INDEX);
+  const [activeSize, setActiveSize] = useState<number>(FIRST_INDEX);
+
+  const cartItem = useAppSelector(state => state.cart.items.find(obj => obj.id === id));
+
+  const addedCount = cartItem ? cartItem.count : '';
+  const addProductItem = () => {
+    const oneItem = {
+      id,
+      imageUrl,
+      name,
+      price,
+      type: typesValue[activeType],
+      size: sizes[activeSize],
+    };
+
+    dispatch(addItem(oneItem));
+  };
   return (
     <div className={s.productItem}>
       <img src={imageUrl} alt="images" />
@@ -16,14 +43,14 @@ export const ProductItem = ({ item }: ProductItemPropsType) => {
       <h3>{name}</h3>
       <div>
         <div className={s.productItem__list}>
-          <TypeItem types={types} />
+          <TypeItem types={types} activeType={activeType} setActiveType={setActiveType} />
 
-          <SizeItem sizes={sizes} />
+          <SizeItem sizes={sizes} activeSize={activeSize} setActiveSize={setActiveSize} />
         </div>
 
         <div className={s.productItem__wrapper}>
           <span className={s.productItem__price}>от {price} Ua</span>
-          <Button />
+          <Button value={addedCount} onClick={addProductItem} />
         </div>
       </div>
     </div>

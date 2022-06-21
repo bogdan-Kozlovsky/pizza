@@ -5,9 +5,13 @@ import { Link } from 'react-router-dom';
 import s from 'component/header/style.module.scss';
 import { HeaderPropsType } from 'component/header/types';
 import { PathNavigation } from 'enums/navigation';
+import { useAppSelector } from 'hooks/useAppSelector';
 
 export const Header = (props: HeaderPropsType) => {
   const { searchValue, setValue, onChange } = props;
+
+  const totalPrice = useAppSelector(state => state.cart.totalPrice);
+  const itemsProduct = useAppSelector(state => state.cart.items);
 
   const onClearClick = () => {
     setValue('');
@@ -16,7 +20,7 @@ export const Header = (props: HeaderPropsType) => {
     <div>
       <div className={s.header__wrapper}>
         <Link to={PathNavigation.PRODUCT}>
-          <img className={s.header__logo} src="/images/icon/logo.svg" alt="" />
+          <img className={s.header__logo} src="/images/icon/logo.svg" alt="logo" />
         </Link>
 
         {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
@@ -43,7 +47,7 @@ export const Header = (props: HeaderPropsType) => {
             to={PathNavigation.SHOPPING_CART}
           >
             <span className={s.header__card_wrapper}>
-              <span>580</span>
+              <span>{totalPrice}</span>
               <img
                 className={s.header__card_icon}
                 src="/images/icon/price.svg"
@@ -52,7 +56,7 @@ export const Header = (props: HeaderPropsType) => {
             </span>
             <span className={s.header__card_decor} />
             <span className={s.header__card_wrapper}>
-              <span>0</span>
+              <span>{itemsProduct.length}</span>
               <img
                 className={s.header__card_icon}
                 src="/images/icon/shopping.svg"
