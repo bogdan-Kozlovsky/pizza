@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 
 import { useDispatch } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 import { ErrorMessage } from 'component/errorMessage/ErrorMessage';
 import { Pagination } from 'component/pagination/Pagination';
@@ -46,7 +47,9 @@ export const Product = (props: ProductPropsType) => {
   ));
 
   const pizzas = items.map((item, index) => (
-    <ProductItem key={`${item.id + item.imageUrl}`} item={item} id={index} />
+    <Link key={`${item.id + item.imageUrl}`} to={`/${item.id}`}>
+      <ProductItem item={item} id={index} />
+    </Link>
   ));
 
   useEffect(() => {
