@@ -1,19 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-type InitialStateType = {
-  totalPrice: number;
-  items: ItemType[];
-};
-
-export type ItemType = {
-  id: number;
-  imageUrl: string;
-  name: string;
-  price: number;
-  type: number;
-  size: number;
-  count: number;
-};
+import { InitialStateType } from 'store/slices/cart/types';
 
 const initialState: InitialStateType = {
   totalPrice: 0,
@@ -43,10 +30,10 @@ const cart = createSlice({
       if (findItem) {
         findItem.count--;
       }
+      // state.totalPrice =
     },
     removeItem(state, action) {
       state.items = state.items.filter(f => f.id !== action.payload);
-      state.totalPrice = 0;
     },
     clearItems(state) {
       state.items = [];

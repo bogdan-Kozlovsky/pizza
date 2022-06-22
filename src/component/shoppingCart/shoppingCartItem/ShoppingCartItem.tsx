@@ -3,7 +3,8 @@ import React from 'react';
 import { useDispatch } from 'react-redux';
 
 import s from 'component/shoppingCart/shoppingCartItem/style.module.scss';
-import { addItem, decrementItem, ItemType, removeItem } from 'store/slices/cart';
+import { addItem, decrementItem, removeItem } from 'store/slices/cart';
+import { ItemType } from 'store/slices/cart/types';
 
 type ShoppingCartItemPropsType = {
   item: ItemType;

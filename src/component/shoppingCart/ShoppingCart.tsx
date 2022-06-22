@@ -8,13 +8,14 @@ import { ShoppingCartItem } from 'component/shoppingCart/shoppingCartItem/Shoppi
 import s from 'component/shoppingCart/style.module.scss';
 import { PathNavigation } from 'enums/navigation';
 import { useAppSelector } from 'hooks/useAppSelector';
+import { selectItemsProduct, selectTotalPrice } from 'store/selectors';
 import { clearItems } from 'store/slices/cart';
 
 export const ShoppingCart = () => {
   const dispatch = useDispatch();
 
-  const itemsProduct = useAppSelector(state => state.cart.items);
-  const totalPrice = useAppSelector(state => state.cart.totalPrice);
+  const itemsProduct = useAppSelector(selectItemsProduct);
+  const totalPrice = useAppSelector(selectTotalPrice);
 
   const onClearItemsClick = () => {
     dispatch(clearItems());
@@ -62,7 +63,7 @@ export const ShoppingCart = () => {
           Всего пицц: <span className={s.shoppingCart__black}>3 шт.</span>
         </span>
         <span className={s.shoppingCart__span}>
-          Всего пицц: <span className={s.shoppingCart__orange}>3 шт.</span>
+          Сумма заказа: <span className={s.shoppingCart__orange}>{totalPrice}</span>
         </span>
       </div>
 

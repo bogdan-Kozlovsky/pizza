@@ -6,12 +6,13 @@ import s from 'component/header/style.module.scss';
 import { HeaderPropsType } from 'component/header/types';
 import { PathNavigation } from 'enums/navigation';
 import { useAppSelector } from 'hooks/useAppSelector';
+import { selectItemsProduct, selectTotalPrice } from 'store/selectors';
 
 export const Header = (props: HeaderPropsType) => {
   const { searchValue, setValue, onChange } = props;
 
-  const totalPrice = useAppSelector(state => state.cart.totalPrice);
-  const itemsProduct = useAppSelector(state => state.cart.items);
+  const totalPrice = useAppSelector(selectTotalPrice);
+  const itemsProduct = useAppSelector(selectItemsProduct);
 
   const onClearClick = () => {
     setValue('');
