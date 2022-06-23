@@ -1,28 +1,12 @@
-import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-import axios from 'axios';
+import { createSlice } from '@reduxjs/toolkit';
 
-import { axiosConfig } from 'api/config';
-import {
-  InitialStateType,
-  ProductItemType,
-  SearchPizzaParams,
-} from 'store/slices/product/types';
+import { fetchProducts } from 'store/asyncThunk/product';
+import { InitialStateType } from 'store/slices/product/types';
 
 const initialState: InitialStateType = {
   items: [],
   status: 'loading',
 };
-
-export const fetchProducts = createAsyncThunk<ProductItemType[], SearchPizzaParams>(
-  'product/fetchProducts',
-  async params => {
-    const { activeIndexPagination, isSortBy, isOrder, search, isCategory } = params;
-    const { data } = await axios.get<ProductItemType[]>(
-      `${axiosConfig.baseURL}?${search}${isCategory}&sortBy=${isSortBy}&order=${isOrder}&page=${activeIndexPagination}&limit=4`,
-    );
-    return data;
-  },
-);
 
 const product = createSlice({
   name: 'product',

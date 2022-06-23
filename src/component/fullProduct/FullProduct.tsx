@@ -4,11 +4,13 @@ import axios from 'axios';
 import { Link, useParams } from 'react-router-dom';
 
 import { axiosConfig } from 'api/config';
+import s from 'component/fullProduct/style.module.scss';
 import { PathNavigation } from 'enums/navigation';
+import { ProductItemType } from 'store/slices/product/types';
 
 type ItemType = {
   imageUrl: string;
-  title: string;
+  name: string;
   price: number;
 };
 
@@ -20,7 +22,7 @@ export const FullProduct = () => {
   useEffect(() => {
     const fetchItems = async () => {
       try {
-        const { data } = await axios.get(`${axiosConfig.baseURL}/${id}`);
+        const { data } = await axios.get<ProductItemType>(`${axiosConfig.baseURL}/${id}`);
         setItems(data);
       } catch (e) {
         console.log(e);
@@ -35,13 +37,14 @@ export const FullProduct = () => {
   }
 
   return (
-    <div>
-      {/* eslint-disable-next-line jsx-a11y/img-redundant-alt */}
-      <img src={items.imageUrl} alt="image" />
-      <h2>{items.title}</h2>
-      <h4>{items.price} Uau</h4>
+    <div className={s.fullProduct}>
+      <img src={items.imageUrl} alt="" />
+      <div className={s.fullProduct__list}>
+        <h2>{items.name}</h2>
+        <h2>{items.price} Uau</h2>
+      </div>
       <Link to={PathNavigation.PRODUCT}>
-        <button type="button" className="button button--outline button--add">
+        <button type="button">
           <span>Назад</span>
         </button>
       </Link>

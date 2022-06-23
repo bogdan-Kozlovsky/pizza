@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 
 import { useDispatch } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 import { Button } from 'common/button/Button';
 import { SizeItem } from 'component/product/productItem/sizeItem/SizeItem';
@@ -38,7 +39,9 @@ export const ProductItem = ({ item }: ProductItemPropsType) => {
   };
   return (
     <div className={s.productItem}>
-      <img src={imageUrl} alt="images" />
+      <Link to={`/${item.id}`}>
+        <img src={imageUrl} alt="images" />
+      </Link>
 
       <h3>{name}</h3>
       <div>

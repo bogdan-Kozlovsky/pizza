@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
 import { useDispatch } from 'react-redux';
-import { Link } from 'react-router-dom';
 
 import { ErrorMessage } from 'component/errorMessage/ErrorMessage';
 import { Pagination } from 'component/pagination/Pagination';
@@ -11,13 +10,13 @@ import { ProductPropsType } from 'component/product/types';
 import Skeleton from 'component/skeleton/Skeleton';
 import { Sort } from 'component/sort/Sort';
 import { useAppSelector } from 'hooks/useAppSelector';
+import { fetchProducts } from 'store/asyncThunk/product';
 import {
   selectCategoryIndex,
   selectItems,
   selectSortModal,
   selectStatus,
 } from 'store/selectors';
-import { fetchProducts } from 'store/slices/product';
 
 const FIRST_ELEMENT = 0;
 const INITIAL_VALUES = 1;
@@ -47,9 +46,7 @@ export const Product = (props: ProductPropsType) => {
   ));
 
   const pizzas = items.map((item, index) => (
-    <Link key={`${item.id + item.imageUrl}`} to={`/${item.id}`}>
-      <ProductItem item={item} id={index} />
-    </Link>
+    <ProductItem key={`${item.id + item.imageUrl}`} item={item} id={index} />
   ));
 
   useEffect(() => {

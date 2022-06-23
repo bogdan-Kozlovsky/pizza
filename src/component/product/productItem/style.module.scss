@@ -4,15 +4,20 @@
   margin: 0 17px 65px 17px;
   max-width: 280px;
   width: 100%;
-  min-height: 459px;
+  //min-height: 459px;
   display: flex;
   flex-direction: column;
 
-  > img {
+  > a > img {
     margin-bottom: 11px;
     max-width: 259.12px;
     height: 260px;
     object-fit: cover;
+    transition: all .2s ease-in-out;
+
+    &:hover {
+      transform: scale(0.9);
+    }
   }
 
   > h3 {

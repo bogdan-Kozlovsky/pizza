@@ -1,0 +1,36 @@
+@import 'src/assets/variables.scss';
+
+.fullProduct {
+  max-width: 400px;
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
+  padding: 15px 0;
+
+  > img {
+    max-width: 300px;
+  }
+
+  > a > button {
+    text-align: left;
+    color: $while-color;
+    padding: 5px 15px;
+    border-radius: 10px;
+    background-color: $btn-color;
+    border: none;
+  }
+
+  &__list {
+    padding: 10px 0 15px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    > h2 {
+      font-weight: 500;
+      color: $black-color;
+      font-size: 20px;
+    }
+  }
+
+}
