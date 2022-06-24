@@ -1,5 +1,6 @@
 import React from 'react';
 
+import { CloseSearch } from 'component/header/closeSeact/CloseSearch';
 import s from 'component/header/style.module.scss';
 import { HeaderPropsType } from 'component/header/types';
 
@@ -20,11 +21,8 @@ export const SearchInput = (props: HeaderPropsType) => {
         type="text"
       />
 
-      {searchValue && (
-        <p className={s.header__clear} role="presentation" onClick={onClearClick}>
-          X
-        </p>
-      )}
+      {searchValue && <CloseSearch onClearClick={onClearClick} />}
+
       <button className={s.header__search_btn} type="button">
         <img className={s.header__search_icon} src="/images/icon/search.svg" alt="" />
       </button>

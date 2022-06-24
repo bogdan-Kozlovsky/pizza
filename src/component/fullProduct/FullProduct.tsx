@@ -4,6 +4,7 @@ import axios from 'axios';
 import { Link, useParams } from 'react-router-dom';
 
 import { axiosConfig } from 'api/config';
+import { Star } from 'component/fullProduct/star/Star';
 import s from 'component/fullProduct/style.module.scss';
 import { PathNavigation } from 'enums/navigation';
 import { ProductItemType } from 'store/slices/product/types';
@@ -12,6 +13,7 @@ type ItemType = {
   imageUrl: string;
   name: string;
   price: number;
+  rating: number;
 };
 
 export const FullProduct = () => {
@@ -36,13 +38,18 @@ export const FullProduct = () => {
     return <>Загрузка...</>;
   }
 
+  const { price, rating, name, imageUrl } = items;
+
   return (
     <div className={s.fullProduct}>
-      <img src={items.imageUrl} alt="" />
+      <img src={imageUrl} alt="" />
       <div className={s.fullProduct__list}>
-        <h2>{items.name}</h2>
-        <h2>{items.price} Uau</h2>
+        <h2>{name}</h2>
+        <h2>{price} Uau</h2>
       </div>
+
+      <Star rating={rating} />
+
       <Link to={PathNavigation.PRODUCT}>
         <button type="button">
           <span>Назад</span>

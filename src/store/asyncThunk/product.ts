@@ -8,6 +8,7 @@ export const fetchProducts = createAsyncThunk<ProductItemType[], SearchPizzaPara
   'product/fetchProducts',
   async params => {
     const { activeIndexPagination, isSortBy, isOrder, search, isCategory } = params;
+
     const { data } = await axios.get<ProductItemType[]>(
       `${axiosConfig.baseURL}?${search}${isCategory}&sortBy=${isSortBy}&order=${isOrder}&page=${activeIndexPagination}&limit=4`,
     );

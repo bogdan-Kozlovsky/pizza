@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from 'react';
 
-import { useDispatch } from 'react-redux';
-
 import { ErrorMessage } from 'component/errorMessage/ErrorMessage';
 import { Pagination } from 'component/pagination/Pagination';
 import { ProductItem } from 'component/product/productItem/ProductItem';
@@ -17,6 +15,7 @@ import {
   selectSortModal,
   selectStatus,
 } from 'store/selectors';
+import { useAppDispatch } from 'store/store';
 
 const FIRST_ELEMENT = 0;
 const INITIAL_VALUES = 1;
@@ -24,7 +23,7 @@ const INITIAL_VALUES = 1;
 export const Product = (props: ProductPropsType) => {
   const { searchValue } = props;
 
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
 
   const status = useAppSelector(selectStatus);
   const items = useAppSelector(selectItems);
@@ -40,18 +39,16 @@ export const Product = (props: ProductPropsType) => {
     itemCategoryIndex > FIRST_ELEMENT ? `&category=${itemCategoryIndex}` : '';
   const search = searchValue ? `&search=${searchValue}` : '';
 
-  const skeletons = [...new Array(items.length)].map((_, index) => (
-    // eslint-disable-next-line react/no-array-index-key
-    <Skeleton key={index} />
-  ));
+  const skeletons = [...new Array(items.length)].map(_ => <Skeleton key={_} />);
 
   const pizzas = items.map((item, index) => (
     <ProductItem key={`${item.id + item.imageUrl}`} item={item} id={index} />
   ));
 
+  const isError = status === 'error';
+
   useEffect(() => {
     dispatch(
-      // @ts-ignore
       fetchProducts({ isSortBy, isOrder, isCategory, search, activeIndexPagination }),
     );
   }, [itemCategoryIndex, itemSortModal, searchValue, activeIndexPagination]);
@@ -61,12 +58,8 @@ export const Product = (props: ProductPropsType) => {
       <Sort />
       <h1 className={s.product__title}>Все пиццы</h1>
       <div className={s.product__items}>
-        {status === 'error' ? (
-          <ErrorMessage />
-        ) : (
-          // eslint-disable-next-line react/jsx-no-useless-fragment
-          <>{status === 'loading' ? skeletons : pizzas}</>
-        )}
+        {/* eslint-disable-next-line react/jsx-no-useless-fragment */}
+        {isError ? <ErrorMessage /> : <>{status === 'loading' ? skeletons : pizzas}</>}
       </div>
       <Pagination
         activeIndex={activeIndexPagination}

@@ -9,8 +9,10 @@ export const ModalItem = (props: ModalItemPropsType) => {
   const modalRef = useRef<HTMLUListElement>(null);
 
   useEffect(() => {
-    const handleOutsideClick = (event: any) => {
-      if (!event.path.includes(modalRef)) {
+    const handleOutsideClick = (event: MouseEvent) => {
+      const copyEvent = event as MouseEvent & { path: Node[] };
+
+      if (modalRef.current && !copyEvent.path.includes(modalRef.current)) {
         setIsVisible(false);
       }
     };
@@ -18,7 +20,6 @@ export const ModalItem = (props: ModalItemPropsType) => {
     document.body.addEventListener('click', handleOutsideClick);
 
     return () => {
-      console.log('not');
       document.body.removeEventListener('click', handleOutsideClick);
     };
   }, []);

@@ -21,11 +21,11 @@ export const ShoppingCartItem = ({ item }: ShoppingCartItemPropsType) => {
   };
 
   const onIncrementItemClick = () => {
-    dispatch(addItem({ id }));
+    dispatch(addItem({ id, imageUrl, name, price, type, size, count }));
   };
 
   const onDecrementItemClick = () => {
-    dispatch(decrementItem({ id }));
+    dispatch(decrementItem(id));
   };
 
   return (

@@ -8,10 +8,12 @@ import { PathNavigation } from 'enums/navigation';
 export const EmptyShoppingCart = () => (
   <div className={s.emptyShoppingCart}>
     <h2 className={s.emptyShoppingCart__title}>Корзина пустая 🥲</h2>
+
     <p className={s.emptyShoppingCart__text}>
       Вероятней всего, вы не заказывали ещё пиццу. Для того, чтобы заказать пиццу, перейди
       на главную страницу.
     </p>
+
     <img
       className={s.emptyShoppingCart__img}
       src="/images/empty-shopping-cart.jpg"

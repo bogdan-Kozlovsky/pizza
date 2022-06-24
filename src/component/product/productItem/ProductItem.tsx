@@ -19,8 +19,8 @@ export const ProductItem = ({ item }: ProductItemPropsType) => {
 
   const dispatch = useDispatch();
 
-  const [activeType, setActiveType] = useState<number>(FIRST_INDEX);
-  const [activeSize, setActiveSize] = useState<number>(FIRST_INDEX);
+  const [activeType, setActiveType] = useState(FIRST_INDEX);
+  const [activeSize, setActiveSize] = useState(FIRST_INDEX);
 
   const cartItem = useAppSelector(state => state.cart.items.find(obj => obj.id === id));
 
@@ -33,6 +33,7 @@ export const ProductItem = ({ item }: ProductItemPropsType) => {
       price,
       type: typesValue[activeType],
       size: sizes[activeSize],
+      count: 0,
     };
 
     dispatch(addItem(oneItem));

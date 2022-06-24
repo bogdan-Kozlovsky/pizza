@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { MouseEventHandler } from 'react';
 
 import s from 'common/button/style.module.scss';
 
 type ButtonPropsType = {
-  onClick: any;
+  onClick: MouseEventHandler<HTMLButtonElement>;
   value: number | string;
 };
 

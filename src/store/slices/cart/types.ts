@@ -8,7 +8,7 @@ export type ItemType = {
   imageUrl: string;
   name: string;
   price: number;
-  type: number;
+  type: string;
   size: number;
   count: number;
 };

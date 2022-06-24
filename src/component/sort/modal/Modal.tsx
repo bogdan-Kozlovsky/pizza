@@ -8,11 +8,11 @@ import { ActiveItemSortModalType, ModalPropsType } from 'component/sort/modal/ty
 import { setItemSortValue } from 'store/slices/filter';
 
 const items = [
-  { name: 'популярности', sortProperty: 'rating' },
-  { name: 'популярности-', sortProperty: '-rating' },
-  { name: 'цене', sortProperty: 'price' },
-  { name: 'цене-', sortProperty: '-price' },
-  { name: 'алфавиту', sortProperty: 'title' },
+  { name: 'популярности 🔺', sortProperty: 'rating' },
+  { name: 'популярности 🔻', sortProperty: '-rating' },
+  { name: 'цене 🔺', sortProperty: 'price' },
+  { name: 'цене 🔻', sortProperty: '-price' },
+  { name: 'алфавиту 🖤', sortProperty: 'title' },
 ];
 
 export const Modal = (props: ModalPropsType) => {
@@ -30,10 +30,6 @@ export const Modal = (props: ModalPropsType) => {
     dispatch(setItemSortValue(sortProperty));
     setIsVisible(false);
   };
-
-  // useEffect(() => {
-  //
-  // }, []);
 
   return (
     <div role="presentation" className={s.modal} onClick={e => e.stopPropagation()}>

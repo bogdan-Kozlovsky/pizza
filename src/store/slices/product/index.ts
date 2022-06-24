@@ -12,25 +12,20 @@ const product = createSlice({
   name: 'product',
   initialState,
   reducers: {},
-  extraReducers: {
-    // @ts-ignore
-    [fetchProducts.pending]: state => {
+  extraReducers: builder => {
+    builder.addCase(fetchProducts.pending, state => {
       state.status = 'loading';
       state.items = [];
-    },
-    // @ts-ignore
-    [fetchProducts.fulfilled]: (state, action) => {
+    });
+    builder.addCase(fetchProducts.fulfilled, (state, action) => {
       state.status = 'success';
       state.items = action.payload;
-    },
-    // @ts-ignore
-    [fetchProducts.rejected]: state => {
+    });
+    builder.addCase(fetchProducts.rejected, state => {
       state.status = 'error';
       state.items = [];
-    },
+    });
   },
 });
 
 export default product.reducer;
-
-// export const {} = product.actions;
