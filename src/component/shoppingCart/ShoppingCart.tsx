@@ -8,8 +8,8 @@ import { ShoppingCartItem } from 'component/shoppingCart/shoppingCartItem/Shoppi
 import s from 'component/shoppingCart/style.module.scss';
 import { PathNavigation } from 'enums/navigation';
 import { useAppSelector } from 'hooks/useAppSelector';
-import { selectItemsProduct, selectTotalPrice } from 'store/selectors';
-import { clearItems } from 'store/slices/cart';
+import { selectItemsProduct, selectTotalPrice } from 'store/cart/selectors';
+import { clearItems } from 'store/cart/slices';
 
 export const ShoppingCart = () => {
   const dispatch = useDispatch();
@@ -18,7 +18,11 @@ export const ShoppingCart = () => {
   const totalPrice = useAppSelector(selectTotalPrice);
 
   const onClearItemsClick = () => {
-    dispatch(clearItems());
+    // eslint-disable-next-line no-alert,no-restricted-globals
+    const isDone = confirm('Ви точно хочете очистить корзину?');
+    if (isDone) {
+      dispatch(clearItems());
+    }
   };
 
   if (!totalPrice) {
@@ -60,7 +64,8 @@ export const ShoppingCart = () => {
 
       <div className={s.shoppingCart__wrapper_description}>
         <span className={s.shoppingCart__span}>
-          Всего пицц: <span className={s.shoppingCart__black}>3 шт.</span>
+          Всего пицц:{' '}
+          <span className={s.shoppingCart__black}>{itemsProduct.length} шт.</span>
         </span>
         <span className={s.shoppingCart__span}>
           Сумма заказа: <span className={s.shoppingCart__orange}>{totalPrice}</span>

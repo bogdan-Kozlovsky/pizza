@@ -9,12 +9,8 @@ import Skeleton from 'component/skeleton/Skeleton';
 import { Sort } from 'component/sort/Sort';
 import { useAppSelector } from 'hooks/useAppSelector';
 import { fetchProducts } from 'store/asyncThunk/product';
-import {
-  selectCategoryIndex,
-  selectItems,
-  selectSortModal,
-  selectStatus,
-} from 'store/selectors';
+import { selectCategoryIndex, selectSortModal } from 'store/filter/selectors';
+import { selectItems, selectStatus } from 'store/product/selectors';
 import { useAppDispatch } from 'store/store';
 
 const FIRST_ELEMENT = 0;
@@ -32,6 +28,7 @@ export const Product = (props: ProductPropsType) => {
 
   const [activeIndexPagination, setActiveIndexPagination] =
     useState<number>(INITIAL_VALUES);
+  // const [isLocalStorage, setIsLocalStorage] = useState(false);
 
   const isSortBy = itemSortModal.sortProperty.replace('-', '');
   const isOrder = itemSortModal.sortProperty.includes('-') ? 'asc' : 'desc';
@@ -52,6 +49,19 @@ export const Product = (props: ProductPropsType) => {
       fetchProducts({ isSortBy, isOrder, isCategory, search, activeIndexPagination }),
     );
   }, [itemCategoryIndex, itemSortModal, searchValue, activeIndexPagination]);
+
+  // useEffect(() => {
+  //   if (isLocalStorage) {
+  //     localStorage.setItem('product', JSON.stringify(items));
+  //   }
+  //
+  //   setIsLocalStorage(true);
+  //   // const saved = localStorage.getItem('product', JSON.parse(items));
+  //   // // @ts-ignore
+  //   // const initialValue = JSON.parse(saved);
+  // }, [items]);
+
+  // localStorage.setItem("name", JSON.stringify(name));
 
   return (
     <div>

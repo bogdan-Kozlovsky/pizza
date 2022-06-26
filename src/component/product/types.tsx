@@ -1,4 +1,4 @@
-import { ProductItemType } from 'store/slices/product/types';
+import { ProductItemType } from 'store/product/types';
 
 export type ProductItemPropsType = {
   item: ProductItemType;

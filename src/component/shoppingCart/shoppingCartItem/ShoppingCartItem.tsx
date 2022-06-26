@@ -3,8 +3,8 @@ import React from 'react';
 import { useDispatch } from 'react-redux';
 
 import s from 'component/shoppingCart/shoppingCartItem/style.module.scss';
-import { addItem, decrementItem, removeItem } from 'store/slices/cart';
-import { ItemType } from 'store/slices/cart/types';
+import { addItem, decrementItem, removeItem } from 'store/cart/slices';
+import { ItemType } from 'store/cart/types';
 
 type ShoppingCartItemPropsType = {
   item: ItemType;
@@ -17,7 +17,11 @@ export const ShoppingCartItem = ({ item }: ShoppingCartItemPropsType) => {
   const dispatch = useDispatch();
 
   const onDeleteItemClick = () => {
-    dispatch(removeItem(id));
+    // eslint-disable-next-line no-alert,no-restricted-globals
+    const isDone = confirm('Ви точно хочете пиццу?');
+    if (isDone) {
+      dispatch(removeItem(id));
+    }
   };
 
   const onIncrementItemClick = () => {
@@ -31,12 +35,14 @@ export const ShoppingCartItem = ({ item }: ShoppingCartItemPropsType) => {
   return (
     <div className={s.shoppingCartItem}>
       <div className={s.shoppingCartItem__wrapper}>
-        <img className={s.shoppingCartItem__img} src={imageUrl} alt={name} />
-        <div className={s.shoppingCartItem__wrapper_description}>
-          <p className={s.shoppingCartItem__text}>{name}</p>
-          <span className={s.shoppingCartItem__description}>
-            {type} тесто, {size} см.
-          </span>
+        <div style={{ display: 'flex' }}>
+          <img className={s.shoppingCartItem__img} src={imageUrl} alt={name} />
+          <div className={s.shoppingCartItem__wrapper_description}>
+            <p className={s.shoppingCartItem__text}>{name}</p>
+            <span className={s.shoppingCartItem__description}>
+              {type} тесто, {size} см.
+            </span>
+          </div>
         </div>
 
         <div className={s.shoppingCartItem__counts}>

@@ -6,7 +6,7 @@ import { Modal } from 'component/sort/modal/Modal';
 import s from 'component/sort/style.module.scss';
 import { SortPropsType } from 'component/sort/types';
 import { useAppSelector } from 'hooks/useAppSelector';
-import { setItemCategoryIndex } from 'store/slices/filter';
+import { setItemCategoryIndex } from 'store/filter/slices';
 
 const categories = ['Все', 'Мясные', 'Вегетарианская', 'Гриль', 'Острые', 'Закрытые'];
 

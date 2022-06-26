@@ -7,7 +7,7 @@ import { axiosConfig } from 'api/config';
 import { Star } from 'component/fullProduct/star/Star';
 import s from 'component/fullProduct/style.module.scss';
 import { PathNavigation } from 'enums/navigation';
-import { ProductItemType } from 'store/slices/product/types';
+import { ProductItemType } from 'store/product/types';
 
 type ItemType = {
   imageUrl: string;

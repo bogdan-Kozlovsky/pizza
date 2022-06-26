@@ -1,13 +1,12 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 import { fetchProducts } from 'store/asyncThunk/product';
-import { InitialStateType } from 'store/slices/product/types';
+import { InitialStateType } from 'store/product/types';
 
 const initialState: InitialStateType = {
   items: [],
   status: 'loading',
 };
-
 const product = createSlice({
   name: 'product',
   initialState,

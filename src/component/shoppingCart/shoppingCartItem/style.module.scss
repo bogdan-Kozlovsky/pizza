@@ -17,6 +17,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    flex-wrap: wrap;
   }
 
   &__img {
@@ -65,7 +66,7 @@
     border: none;
     background-color: transparent;
 
-    &:disabled{
+    &:disabled {
       color: $opacity-color;
     }
   }

@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import s from 'component/header/style.module.scss';
 import { PathNavigation } from 'enums/navigation';
 import { useAppSelector } from 'hooks/useAppSelector';
-import { selectItemsProduct, selectTotalPrice } from 'store/selectors';
+import { selectItemsProduct, selectTotalPrice } from 'store/cart/selectors';
 
 export const ButtonCart = () => {
   const totalPrice = useAppSelector(selectTotalPrice);

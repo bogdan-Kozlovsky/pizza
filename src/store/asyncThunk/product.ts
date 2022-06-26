@@ -2,7 +2,7 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
 import { axiosConfig } from 'api/config';
-import { ProductItemType, SearchPizzaParams } from 'store/slices/product/types';
+import { ProductItemType, SearchPizzaParams } from 'store/product/types';
 
 export const fetchProducts = createAsyncThunk<ProductItemType[], SearchPizzaParams>(
   'product/fetchProducts',

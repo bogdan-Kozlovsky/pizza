@@ -5,7 +5,7 @@ import { useDispatch } from 'react-redux';
 import { ModalItem } from 'component/sort/modal/modalitem/ModalItem';
 import s from 'component/sort/modal/style.module.scss';
 import { ActiveItemSortModalType, ModalPropsType } from 'component/sort/modal/types';
-import { setItemSortValue } from 'store/slices/filter';
+import { setItemSortValue } from 'store/filter/slices';
 
 const items = [
   { name: 'популярности 🔺', sortProperty: 'rating' },

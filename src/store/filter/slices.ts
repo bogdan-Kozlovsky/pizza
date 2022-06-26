@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
-import { InitialStateType } from 'store/slices/filter/types';
+import { InitialStateType } from 'store/filter/types';
 
 const initialState: InitialStateType = {
   itemCategoryIndex: 0,

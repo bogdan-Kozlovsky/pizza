@@ -9,7 +9,7 @@ import s from 'component/product/productItem/style.module.scss';
 import { TypeItem } from 'component/product/productItem/typeItem/TypeItem';
 import { ProductItemPropsType } from 'component/product/types';
 import { useAppSelector } from 'hooks/useAppSelector';
-import { addItem } from 'store/slices/cart';
+import { addItem } from 'store/cart/slices';
 
 const FIRST_INDEX = 0;
 const typesValue = ['тонкое', 'традиционное'];

@@ -5,6 +5,4 @@ export type ModalItemPropsType = {
   setIsVisible: (isVisible: boolean) => void;
   onActiveClick: (sortProperty: ActiveItemSortModalType) => void;
   activeItemModal: ActiveItemSortModalType;
-  // itemSortModal: ActiveItemModalType;
-  // setItemSortModal: (itemSortModal: ActiveItemModalType) => void;
 };

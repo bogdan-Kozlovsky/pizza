@@ -8,6 +8,14 @@
   display: flex;
   flex-direction: column;
 
+  @media (max-width: 720px) {
+    max-width: 100%;
+  }
+
+  > a {
+    text-align: center;
+  }
+
   > a > img {
     margin-bottom: 11px;
     max-width: 259.12px;
