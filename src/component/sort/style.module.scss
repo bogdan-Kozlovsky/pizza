@@ -11,6 +11,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    position: relative;
 
     @media (max-width: 1200px) {
       display: block;
@@ -18,16 +19,24 @@
   }
 
   &__list {
+    opacity: 0;
+    visibility: hidden;
     display: flex;
     justify-content: space-between;
     margin: 0 -10px;
     overflow: auto;
     padding-bottom: 10px;
+    transition: all .3s ease;;
 
     @media (max-width: 1200px) {
       padding-bottom: 10px;
       margin-bottom: 10px;
     }
+  }
+
+  &__aaa {
+    opacity: 1;
+    visibility: visible;
   }
 
   &__item {
@@ -44,7 +53,7 @@
   }
 
   &__active {
-    background-color: $black-color;
+    background-color: $background-color-product;
     color: $while-color;
   }
 }

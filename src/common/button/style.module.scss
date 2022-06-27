@@ -3,19 +3,20 @@
 .btn{
   position: relative;
   padding: 11px 18px;
-  background: $while-color;
-  border: 1px solid $btn-color;
+  background: $btn-color;
+  //border: 1px solid $btn-color;
+  border: none;
   border-radius: 30px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  color: $btn-color;
+  color: $while-color;
 }
 
 .count{
   position: absolute;
   right: 6px;
-  background-color: $btn-color;
+  background-color: $background-color-product;
   border-radius: 30px;
   color: #fff;
   font-size: 13px;

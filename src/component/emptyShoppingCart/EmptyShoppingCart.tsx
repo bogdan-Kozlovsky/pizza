@@ -7,11 +7,11 @@ import { PathNavigation } from 'enums/navigation';
 
 export const EmptyShoppingCart = () => (
   <div className={s.emptyShoppingCart}>
-    <h2 className={s.emptyShoppingCart__title}>Корзина пустая 🥲</h2>
+    <h2 className={s.emptyShoppingCart__title}>Кошик порожній 🥲</h2>
 
     <p className={s.emptyShoppingCart__text}>
-      Вероятней всего, вы не заказывали ещё пиццу. Для того, чтобы заказать пиццу, перейди
-      на главную страницу.
+      Найімовірніше, ви не замовляли ще піцу. Для того, щоб замовити піцу, перейди На
+      головну сторінку.
     </p>
 
     <img
@@ -21,7 +21,7 @@ export const EmptyShoppingCart = () => (
     />
 
     <Link className={s.emptyShoppingCart__link} to={PathNavigation.PRODUCT}>
-      Вернуться назад
+      Повернутися назад
     </Link>
   </div>
 );

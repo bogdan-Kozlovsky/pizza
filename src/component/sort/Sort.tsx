@@ -1,31 +1,40 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import { useDispatch } from 'react-redux';
 
+import { ButtonCategory } from 'component/sort/buttonCategory/ButtonCategory';
 import { Modal } from 'component/sort/modal/Modal';
 import s from 'component/sort/style.module.scss';
-import { SortPropsType } from 'component/sort/types';
 import { useAppSelector } from 'hooks/useAppSelector';
 import { setItemCategoryIndex } from 'store/filter/slices';
 
-const categories = ['Все', 'Мясные', 'Вегетарианская', 'Гриль', 'Острые', 'Закрытые'];
+const categories = ['Всі', 'Мясні', 'Вегетаріанська', 'Гриль', 'Гострі', 'Закриті'];
 
-export const Sort = (props: SortPropsType) => {
-  // eslint-disable-next-line no-empty-pattern
-  const {} = props;
-
+export const Sort = () => {
   const itemCategoryValue = useAppSelector(state => state.filter.itemCategoryIndex);
   const itemSortModal = useAppSelector(state => state.filter.itemSortValue);
 
   const dispatch = useDispatch();
 
+  const [isCloseCategory, setIsCloseCategory] = useState(false);
+  const [isCloseBtn, setIsCloseBtn] = useState(true);
+
   const onSetActiveClick = (index: number) => {
+    setIsCloseCategory(false);
+    setIsCloseBtn(true);
     dispatch(setItemCategoryIndex(index));
+  };
+
+  const onCloseCategoryClick = () => {
+    setIsCloseBtn(false);
+    setIsCloseCategory(true);
   };
 
   return (
     <div className={`${s.sort__wrapper} ${s.sort}`}>
-      <ul className={s.sort__list}>
+      {isCloseBtn && <ButtonCategory onCloseCategoryClick={onCloseCategoryClick} />}
+
+      <ul className={`${s.sort__list} ${isCloseCategory ? s.sort__aaa : ''} `}>
         {categories.map((categoryName, index) => (
           <li
             role="presentation"

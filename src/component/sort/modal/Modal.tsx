@@ -8,11 +8,11 @@ import { ActiveItemSortModalType, ModalPropsType } from 'component/sort/modal/ty
 import { setItemSortValue } from 'store/filter/slices';
 
 const items = [
-  { name: 'популярности 🔺', sortProperty: 'rating' },
-  { name: 'популярности 🔻', sortProperty: '-rating' },
-  { name: 'цене 🔺', sortProperty: 'price' },
-  { name: 'цене 🔻', sortProperty: '-price' },
-  { name: 'алфавиту 🖤', sortProperty: 'title' },
+  { name: 'популярності 🔺', sortProperty: 'rating' },
+  { name: 'популярності 🔻', sortProperty: '-rating' },
+  { name: 'ціні 🔺', sortProperty: 'price' },
+  { name: 'ціні 🔻', sortProperty: '-price' },
+  { name: 'алфавіту 🖤', sortProperty: 'title' },
 ];
 
 export const Modal = (props: ModalPropsType) => {
@@ -38,7 +38,7 @@ export const Modal = (props: ModalPropsType) => {
         src="/images/icon/arrow.svg"
         alt="arrow"
       />
-      <p className={s.modal__description}>Сортировка по:</p>
+      <p className={s.modal__description}>Сортування за:</p>
 
       <span onClick={onVisibleClick} role="presentation" className={s.modal__active}>
         {itemSortModal.name}

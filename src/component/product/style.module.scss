@@ -1,6 +1,7 @@
 @import 'src/assets/variables.scss';
 
 .product {
+  position: relative;
 
   &__title {
     font-weight: 700;

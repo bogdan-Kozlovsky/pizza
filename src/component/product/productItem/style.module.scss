@@ -1,15 +1,22 @@
 @import 'src/assets/variables.scss';
 
 .productItem {
+  box-shadow: 0 0 15px rgb(0 0 0 / 10%);
+  border-radius: 25px;
+  padding: 16px;
   margin: 0 17px 65px 17px;
   max-width: 280px;
   width: 100%;
-  //min-height: 459px;
   display: flex;
   flex-direction: column;
+  transition: all .3s ease;
 
   @media (max-width: 720px) {
     max-width: 100%;
+  }
+
+  &:hover {
+    box-shadow: 0 0 15px rgb(0 0 0 / 50%);
   }
 
   > a {
@@ -82,7 +89,8 @@
   &__list_active {
     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.04);
     border-radius: 5px;
-    background-color: $while-color;
+    background: $background-color-product;
+    color: $while-color;
   }
 
   // bottom

@@ -35,7 +35,7 @@ export const FullProduct = () => {
   }, []);
 
   if (!items) {
-    return <>Загрузка...</>;
+    return <>Ти не туди потрапив</>;
   }
 
   const { price, rating, name, imageUrl } = items;

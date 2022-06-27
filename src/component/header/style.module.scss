@@ -14,22 +14,19 @@
   &__link {
   }
 
-  &__logo {
-    margin-right: 15px;
-  }
-
   &__label {
     max-width: 400px;
     width: 100%;
     position: relative;
   }
 
-  &__clear{
+  &__clear {
     position: absolute;
     right: 20px;
     top: 50%;
     transform: translateY(-50%);
     cursor: pointer;
+    padding: 10px;
   }
 
   &__input {
@@ -103,12 +100,7 @@
 
 @media (max-width: 680px) {
   .header {
-    &__logo {
-      max-width: 220px;
-      margin-bottom: 10px;
-    }
-
-    &__card_link{
+    &__card_link {
       padding: 7px 3px;
     }
   }

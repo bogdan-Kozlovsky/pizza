@@ -40,7 +40,7 @@ export const ShoppingCartItem = ({ item }: ShoppingCartItemPropsType) => {
           <div className={s.shoppingCartItem__wrapper_description}>
             <p className={s.shoppingCartItem__text}>{name}</p>
             <span className={s.shoppingCartItem__description}>
-              {type} тесто, {size} см.
+              {type} тісто, {size} см.
             </span>
           </div>
         </div>

@@ -38,7 +38,7 @@ export const ShoppingCart = () => {
             src="/images/icon/shopping-cart.svg"
             alt="shopping"
           />
-          Корзина
+          Кошик
         </h3>
         <button
           onClick={onClearItemsClick}
@@ -50,7 +50,7 @@ export const ShoppingCart = () => {
             src="/images/icon/clear.svg"
             alt="shopping"
           />
-          Очистить корзину
+          Очистити кошик
         </button>
       </div>
 
@@ -64,22 +64,22 @@ export const ShoppingCart = () => {
 
       <div className={s.shoppingCart__wrapper_description}>
         <span className={s.shoppingCart__span}>
-          Всего пицц:{' '}
+          Всього піц:{' '}
           <span className={s.shoppingCart__black}>{itemsProduct.length} шт.</span>
         </span>
         <span className={s.shoppingCart__span}>
-          Сумма заказа: <span className={s.shoppingCart__orange}>{totalPrice}</span>
+          Сума замовлення: <span className={s.shoppingCart__orange}>{totalPrice} </span>ua
         </span>
       </div>
 
       <div className={s.shoppingCart__wrapper_btn}>
         <Link className={s.shoppingCart__btn_return} to={PathNavigation.PRODUCT}>
           <img src="/images/icon/return.svg" alt="return" />
-          Вернуться назад
+          Повернутися назад
         </Link>
 
         <button className={s.shoppingCart__btn} type="button">
-          Оплатить сейчас
+          Оплатити зараз
         </button>
       </div>
     </div>

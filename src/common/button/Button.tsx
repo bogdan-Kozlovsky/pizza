@@ -11,8 +11,7 @@ const FIRST_NUMBER = 0;
 
 export const Button = ({ onClick, value }: ButtonPropsType) => (
   <button onClick={onClick} className={s.btn} type="button">
-    <img src="/images/icon/plus.svg" alt="plus" />
-    <span className={s.text}>Добавить</span>
+    <span className={s.text}>В кошик</span>
     {value > FIRST_NUMBER && <span className={s.count}>{value}</span>}
   </button>
 );

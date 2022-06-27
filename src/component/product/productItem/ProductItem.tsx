@@ -12,7 +12,7 @@ import { useAppSelector } from 'hooks/useAppSelector';
 import { addItem } from 'store/cart/slices';
 
 const FIRST_INDEX = 0;
-const typesValue = ['тонкое', 'традиционное'];
+export const typesValue = ['тонке', 'традиційне'];
 
 export const ProductItem = ({ item }: ProductItemPropsType) => {
   const { imageUrl, name, price, sizes, types, id } = item;
@@ -53,7 +53,7 @@ export const ProductItem = ({ item }: ProductItemPropsType) => {
         </div>
 
         <div className={s.productItem__wrapper}>
-          <span className={s.productItem__price}>от {price} Ua</span>
+          <span className={s.productItem__price}>{price} Ua</span>
           <Button value={addedCount} onClick={addProductItem} />
         </div>
       </div>

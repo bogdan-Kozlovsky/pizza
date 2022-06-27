@@ -22,8 +22,89 @@
   align-items: center;
 }
 
-.btn{
+.btn {
   padding: 15px 23px;
   background-color: $btn-color;
   transition: all 0.4s ease-in;
 }
+
+.preloader {
+  animation: rotate 0.8s infinite linear;
+  position: absolute;
+  top: 25%;
+  left: 50%;
+  transform: translateX(-50%);
+
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg)
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+//burger
+
+.btnClose {
+  position: absolute;
+  background-color: $btn-color;
+  border-radius: 30px;
+  border: none;
+  display: flex;
+  align-items: center;
+  color: $while-color;
+  padding: 10px 15px;
+}
+
+.isClose {
+  margin-left: 10px;
+  background-color: transparent;
+  //background: $btn-color;
+  //color: $while-color;
+  border: none;
+  //margin: 20px auto;
+  width: 20px;
+  height: 14px;
+  cursor: pointer;
+  position: relative;
+}
+
+.isClose span {
+  background-color: $while-color;
+  height: 2px;
+  position: absolute;
+  width: 100%;
+  left: 0;
+  transition: all 0.3s ease;
+}
+
+.isClose span:first-child {
+  top: 0;
+}
+
+.isClose span:nth-child(2) {
+  top: 6px;
+}
+
+.isClose span:last-child {
+  top: 12px;
+}
+
+//.menu-icon:hover span:nth-child(2) {
+//  opacity: 0;
+//}
+//.menu-icon:hover span:first-child,
+//.menu-icon:hover span:last-child {
+//  top: 6px;
+//  background-color: red;
+//}
+//.menu-icon:hover span:first-child {
+//  transform: rotate(45deg);
+//}
+//.menu-icon:hover span:last-child {
+//  transform: rotate(-45deg);
+//}

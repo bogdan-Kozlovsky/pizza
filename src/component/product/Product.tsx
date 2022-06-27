@@ -5,7 +5,6 @@ import { Pagination } from 'component/pagination/Pagination';
 import { ProductItem } from 'component/product/productItem/ProductItem';
 import s from 'component/product/style.module.scss';
 import { ProductPropsType } from 'component/product/types';
-import Skeleton from 'component/skeleton/Skeleton';
 import { Sort } from 'component/sort/Sort';
 import { useAppSelector } from 'hooks/useAppSelector';
 import { fetchProducts } from 'store/asyncThunk/product';
@@ -26,7 +25,6 @@ export const Product = (props: ProductPropsType) => {
   const itemCategoryIndex = useAppSelector(selectCategoryIndex);
   const itemSortModal = useAppSelector(selectSortModal);
 
-  console.log(items.length);
   const [activeIndexPagination, setActiveIndexPagination] =
     useState<number>(INITIAL_VALUES);
 
@@ -35,8 +33,6 @@ export const Product = (props: ProductPropsType) => {
   const isCategory =
     itemCategoryIndex > FIRST_ELEMENT ? `&category=${itemCategoryIndex}` : '';
   const search = searchValue ? `&search=${searchValue}` : '';
-
-  const skeletons = [...new Array(items.length)].map(_ => <Skeleton key={_} />);
 
   const pizzas = items.map((item, index) => (
     <ProductItem key={`${item.id + item.imageUrl}`} item={item} id={index} />
@@ -50,27 +46,17 @@ export const Product = (props: ProductPropsType) => {
     );
   }, [itemCategoryIndex, itemSortModal, searchValue, activeIndexPagination]);
 
-  // useEffect(() => {
-  //   if (isLocalStorage) {
-  //     localStorage.setItem('product', JSON.stringify(items));
-  //   }
-  //
-  //   setIsLocalStorage(true);
-  //   // const saved = localStorage.getItem('product', JSON.parse(items));
-  //   // // @ts-ignore
-  //   // const initialValue = JSON.parse(saved);
-  // }, [items]);
-
-  // localStorage.setItem("name", JSON.stringify(name));
-
   return (
-    <div>
+    <div className={s.product}>
+      {/* {!items.length && <div>not pizzas</div>} */}
       <Sort />
-      <h1 className={s.product__title}>Все пиццы</h1>
-      {!items.length && <div className={s.product__notifications}>Не найдено</div>}
+      <h1 className={s.product__title}>Усі піци</h1>
+      {status === 'loading' && (
+        <img className="preloader" src="/images/icon/preloader.svg" alt="preloader" />
+      )}
       <div className={s.product__items}>
         {/* eslint-disable-next-line react/jsx-no-useless-fragment */}
-        {isError ? <ErrorMessage /> : <>{status === 'loading' ? skeletons : pizzas}</>}
+        {isError ? <ErrorMessage /> : <>{pizzas}</>}
       </div>
       <Pagination
         activeIndex={activeIndexPagination}
