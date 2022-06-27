@@ -26,9 +26,9 @@ export const Product = (props: ProductPropsType) => {
   const itemCategoryIndex = useAppSelector(selectCategoryIndex);
   const itemSortModal = useAppSelector(selectSortModal);
 
+  console.log(items.length);
   const [activeIndexPagination, setActiveIndexPagination] =
     useState<number>(INITIAL_VALUES);
-  // const [isLocalStorage, setIsLocalStorage] = useState(false);
 
   const isSortBy = itemSortModal.sortProperty.replace('-', '');
   const isOrder = itemSortModal.sortProperty.includes('-') ? 'asc' : 'desc';
@@ -67,6 +67,7 @@ export const Product = (props: ProductPropsType) => {
     <div>
       <Sort />
       <h1 className={s.product__title}>Все пиццы</h1>
+      {!items.length && <div className={s.product__notifications}>Не найдено</div>}
       <div className={s.product__items}>
         {/* eslint-disable-next-line react/jsx-no-useless-fragment */}
         {isError ? <ErrorMessage /> : <>{status === 'loading' ? skeletons : pizzas}</>}

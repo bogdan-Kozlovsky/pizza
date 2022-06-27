@@ -35,7 +35,7 @@ export const ShoppingCartItem = ({ item }: ShoppingCartItemPropsType) => {
   return (
     <div className={s.shoppingCartItem}>
       <div className={s.shoppingCartItem__wrapper}>
-        <div style={{ display: 'flex' }}>
+        <div className={s.shoppingCartItem__wrap}>
           <img className={s.shoppingCartItem__img} src={imageUrl} alt={name} />
           <div className={s.shoppingCartItem__wrapper_description}>
             <p className={s.shoppingCartItem__text}>{name}</p>
@@ -73,19 +73,21 @@ export const ShoppingCartItem = ({ item }: ShoppingCartItemPropsType) => {
         </div>
 
         {/* // price */}
-        <p className={s.shoppingCartItem__price}>{price * count} ua</p>
+        <div className={s.shoppingCartItem__wrapper_nav}>
+          <p className={s.shoppingCartItem__price}>{price * count} ua</p>
 
-        <button
-          onClick={onDeleteItemClick}
-          className={s.shoppingCartItem__btn}
-          type="button"
-        >
-          <img
-            className={s.shoppingCartItem__icon}
-            src="/images/icon/delete.svg"
-            alt="delete"
-          />
-        </button>
+          <button
+            onClick={onDeleteItemClick}
+            className={s.shoppingCartItem__btn}
+            type="button"
+          >
+            <img
+              className={s.shoppingCartItem__icon}
+              src="/images/icon/delete.svg"
+              alt="delete"
+            />
+          </button>
+        </div>
       </div>
     </div>
   );

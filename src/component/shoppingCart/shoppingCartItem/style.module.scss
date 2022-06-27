@@ -18,6 +18,15 @@
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
+
+    @media (max-width: 750px) {
+      padding-bottom: 10px;
+      border-bottom: 1px solid #F7F7F7;
+    }
+  }
+
+  &__wrap {
+    display: flex;
   }
 
   &__img {
@@ -59,7 +68,18 @@
   }
 
   &__price {
-    margin: 0 5px;
+    margin: 0 15px;
+  }
+
+  &__wrapper_nav {
+    display: flex;
+
+    @media (max-width: 750px) {
+      width: 100%;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 20px;
+    }
   }
 
   &__btn {

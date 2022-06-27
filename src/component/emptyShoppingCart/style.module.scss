@@ -32,9 +32,13 @@
     height: 255px;
     display: inline-block;
     margin: 47px 0 74px 0;
+
+    @media (max-width: 500px) {
+      height: 140px;
+    }
   }
 
-  &__link{
+  &__link {
     padding: 13px 20px;
     background-color: $black-color;
     font-weight: 700;

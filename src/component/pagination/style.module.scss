@@ -1,4 +1,8 @@
 .root {
+  @media (max-width: 720px) {
+    text-align: center;
+  }
+
   li {
     display: inline-block;
 
