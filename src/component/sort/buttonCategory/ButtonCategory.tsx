@@ -2,11 +2,15 @@ import React from 'react';
 
 type ButtonCategoryPropsType = {
   onCloseCategoryClick: () => void;
+  valueButtonCategory: string;
 };
 
-export const ButtonCategory = ({ onCloseCategoryClick }: ButtonCategoryPropsType) => (
+export const ButtonCategory = ({
+  onCloseCategoryClick,
+  valueButtonCategory,
+}: ButtonCategoryPropsType) => (
   <button onClick={onCloseCategoryClick} type="button" className="btnClose">
-    Категорії
+    {valueButtonCategory}
     <div className="isClose">
       <span />
       <span />

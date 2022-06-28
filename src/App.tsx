@@ -9,6 +9,7 @@ import { Product } from 'component/product/Product';
 import { ShoppingCart } from 'component/shoppingCart/ShoppingCart';
 import { PathNavigation } from 'enums/navigation';
 import { useInput } from 'hooks/useInput';
+import useTheme from 'hooks/useThema';
 import useDebounce from 'utils/useDebounce';
 
 const WAITING_TIME = 400;
@@ -16,12 +17,20 @@ const WAITING_TIME = 400;
 export const App = () => {
   const { onChange, value, setValue } = useInput('');
 
+  const { theme, toggleTheme } = useTheme();
+
   const searchValue = useDebounce(value, WAITING_TIME);
 
   return (
-    <div className="wrapper">
+    <div className={` wrapper ${theme === 'dark' ? 'dark' : 'light'}`}>
       <div className="container">
-        <Header setValue={setValue} searchValue={value} onChange={onChange} />
+        <Header
+          theme={theme}
+          toggleTheme={toggleTheme}
+          setValue={setValue}
+          searchValue={value}
+          onChange={onChange}
+        />
         <Routes>
           <Route path="/:id" element={<FullProduct />} />
           <Route

@@ -1,9 +1,7 @@
 import { ChangeEvent } from 'react';
 
-export type HeaderPropsType = {
+export type SearchInputPropsType = {
   searchValue: string;
   setValue: (searchValue: string) => void;
   onChange: (e: ChangeEvent<HTMLInputElement>) => void;
-  theme: string;
-  toggleTheme: () => void;
 };

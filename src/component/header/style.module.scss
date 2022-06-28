@@ -9,6 +9,12 @@
     flex-wrap: wrap;
     padding-bottom: 40px;
     border-bottom: 1px solid $border-color;
+
+    > div {
+      display: flex;
+      align-items: end;
+      margin-right: 15px;
+    }
   }
 
   &__link {
@@ -84,6 +90,22 @@
     width: 1px;
     height: 25px;
     background: rgba(255, 255, 255, 0.25);
+  }
+}
+
+.icon {
+  font-size: 30px;
+  cursor: pointer;
+  animation: rotate 0.8s infinite linear;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg)
+  }
+
+  to {
+    transform: rotate(360deg);
   }
 }
 

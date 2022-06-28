@@ -63,10 +63,7 @@
 .isClose {
   margin-left: 10px;
   background-color: transparent;
-  //background: $btn-color;
-  //color: $while-color;
   border: none;
-  //margin: 20px auto;
   width: 20px;
   height: 14px;
   cursor: pointer;
@@ -94,17 +91,12 @@
   top: 12px;
 }
 
-//.menu-icon:hover span:nth-child(2) {
-//  opacity: 0;
-//}
-//.menu-icon:hover span:first-child,
-//.menu-icon:hover span:last-child {
-//  top: 6px;
-//  background-color: red;
-//}
-//.menu-icon:hover span:first-child {
-//  transform: rotate(45deg);
-//}
-//.menu-icon:hover span:last-child {
-//  transform: rotate(-45deg);
-//}
+.dark {
+  background: $background-color-product;
+  transition: 0.3s all;
+}
+
+.light {
+  background: linear-gradient(#36b6c2, #c391e5);
+  transition: 0.3s all;
+}

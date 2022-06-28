@@ -1,10 +1,10 @@
 import React from 'react';
 
 import { CloseSearch } from 'component/header/closeSeact/CloseSearch';
+import { SearchInputPropsType } from 'component/header/searchInput/types';
 import s from 'component/header/style.module.scss';
-import { HeaderPropsType } from 'component/header/types';
 
-export const SearchInput = (props: HeaderPropsType) => {
+export const SearchInput = (props: SearchInputPropsType) => {
   const { searchValue, setValue, onChange } = props;
 
   const onClearClick = () => {

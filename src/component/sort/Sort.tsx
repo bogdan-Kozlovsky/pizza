@@ -13,15 +13,17 @@ const categories = ['Всі', 'Мясні', 'Вегетаріанська', 'Г�
 export const Sort = () => {
   const itemCategoryValue = useAppSelector(state => state.filter.itemCategoryIndex);
   const itemSortModal = useAppSelector(state => state.filter.itemSortValue);
+  const [valueButtonCategory, setValueButtonCategory] = useState('Категорії');
 
   const dispatch = useDispatch();
 
   const [isCloseCategory, setIsCloseCategory] = useState(false);
   const [isCloseBtn, setIsCloseBtn] = useState(true);
 
-  const onSetActiveClick = (index: number) => {
+  const onSetActiveClick = (index: number, categoryName: string) => {
     setIsCloseCategory(false);
     setIsCloseBtn(true);
+    setValueButtonCategory(categoryName);
     dispatch(setItemCategoryIndex(index));
   };
 
@@ -32,7 +34,12 @@ export const Sort = () => {
 
   return (
     <div className={`${s.sort__wrapper} ${s.sort}`}>
-      {isCloseBtn && <ButtonCategory onCloseCategoryClick={onCloseCategoryClick} />}
+      {isCloseBtn && (
+        <ButtonCategory
+          valueButtonCategory={valueButtonCategory}
+          onCloseCategoryClick={onCloseCategoryClick}
+        />
+      )}
 
       <ul className={`${s.sort__list} ${isCloseCategory ? s.sort__aaa : ''} `}>
         {categories.map((categoryName, index) => (
@@ -42,7 +49,7 @@ export const Sort = () => {
             className={`${s.sort__item} ${
               itemCategoryValue === index ? s.sort__active : ''
             }`}
-            onClick={() => onSetActiveClick(index)}
+            onClick={() => onSetActiveClick(index, categoryName)}
           >
             {categoryName}
           </li>

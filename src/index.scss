@@ -10,7 +10,6 @@ body {
   font-size: 16px;
   line-height: 19px;
   color: $default-color;
-  background: $background-color;
-  margin: 20px;
+  min-height: 100vh;
   letter-spacing: 0.01em;
 }

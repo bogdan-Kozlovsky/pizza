@@ -2,6 +2,7 @@ import React, { useEffect, useRef } from 'react';
 
 import { useLocation } from 'react-router-dom';
 
+import { Theme } from 'common/thema/Theme';
 import { ButtonCart } from 'component/header/buttonCart/ButtonCart';
 import { Logo } from 'component/header/logo/Logo';
 import { SearchInput } from 'component/header/searchInput/SearchInput';
@@ -11,7 +12,7 @@ import { useAppSelector } from 'hooks/useAppSelector';
 import { selectItemsProduct } from 'store/cart/selectors';
 
 export const Header = (props: HeaderPropsType) => {
-  const { searchValue, setValue, onChange } = props;
+  const { searchValue, setValue, onChange, toggleTheme, theme } = props;
 
   const { pathname } = useLocation();
 
@@ -32,7 +33,10 @@ export const Header = (props: HeaderPropsType) => {
   return (
     <div>
       <div className={s.header__wrapper}>
-        <Logo />
+        <div>
+          <Logo />
+          <Theme theme={theme} toggleTheme={toggleTheme} />
+        </div>
 
         {isOpacityElement && (
           <SearchInput
