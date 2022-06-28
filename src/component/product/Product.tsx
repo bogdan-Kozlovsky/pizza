@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
+import preloader from 'assets/images/icon/preloader.svg';
 import { ErrorMessage } from 'component/errorMessage/ErrorMessage';
 import { Pagination } from 'component/pagination/Pagination';
 import { ProductItem } from 'component/product/productItem/ProductItem';
@@ -34,11 +35,8 @@ export const Product = (props: ProductPropsType) => {
     itemCategoryIndex > FIRST_ELEMENT ? `&category=${itemCategoryIndex}` : '';
   const search = searchValue ? `&search=${searchValue}` : '';
 
-  const pizzas = items.map((item, index) => (
-    <ProductItem key={`${item.id + item.imageUrl}`} item={item} id={index} />
-  ));
-
   const isError = status === 'error';
+  const isStatusLoading = status === 'loading';
 
   useEffect(() => {
     dispatch(
@@ -48,15 +46,23 @@ export const Product = (props: ProductPropsType) => {
 
   return (
     <div className={s.product}>
-      {/* {!items.length && <div>not pizzas</div>} */}
       <Sort />
       <h1 className={s.product__title}>Усі піци</h1>
-      {status === 'loading' && (
-        <img className="preloader" src="/images/icon/preloader.svg" alt="preloader" />
-      )}
       <div className={s.product__items}>
-        {/* eslint-disable-next-line react/jsx-no-useless-fragment */}
-        {isError ? <ErrorMessage /> : <>{pizzas}</>}
+        {isStatusLoading ? (
+          <img className="preloader" src={preloader} alt="preloader" />
+        ) : !items.length ? (
+          <div>Піци не знайдено</div>
+        ) : isError ? (
+          <ErrorMessage />
+        ) : (
+          // eslint-disable-next-line react/jsx-no-useless-fragment
+          <>
+            {items.map((item, index) => (
+              <ProductItem key={`${item.id + item.imageUrl}`} item={item} id={index} />
+            ))}
+          </>
+        )}
       </div>
       <Pagination
         activeIndex={activeIndexPagination}

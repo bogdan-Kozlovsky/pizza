@@ -1,5 +1,6 @@
 import React from 'react';
 
+import search from 'assets/images/icon/search.svg';
 import { CloseSearch } from 'component/header/closeSeact/CloseSearch';
 import { SearchInputPropsType } from 'component/header/searchInput/types';
 import s from 'component/header/style.module.scss';
@@ -24,7 +25,7 @@ export const SearchInput = (props: SearchInputPropsType) => {
       {searchValue && <CloseSearch onClearClick={onClearClick} />}
 
       <button className={s.header__search_btn} type="button">
-        <img className={s.header__search_icon} src="/images/icon/search.svg" alt="" />
+        <img className={s.header__search_icon} src={search} alt="" />
       </button>
     </label>
   );

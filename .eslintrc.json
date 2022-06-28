@@ -25,6 +25,7 @@
   ],
   "rules": {
     "no-shadow": "off",
+    "no-nested-ternary": "off",
     "no-param-reassign": "warn",
     "no-alert": "error",
     "no-debugger": "error",

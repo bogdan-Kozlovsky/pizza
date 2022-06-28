@@ -2,6 +2,9 @@ import React from 'react';
 
 import { useDispatch } from 'react-redux';
 
+import decrement from 'assets/images/icon/decrement.svg';
+import deleteIcon from 'assets/images/icon/delete.svg';
+import increment from 'assets/images/icon/increment.svg';
 import s from 'component/shoppingCart/shoppingCartItem/style.module.scss';
 import { addItem, decrementItem, removeItem } from 'store/cart/slices';
 import { ItemType } from 'store/cart/types';
@@ -52,11 +55,7 @@ export const ShoppingCartItem = ({ item }: ShoppingCartItemPropsType) => {
             className={s.shoppingCartItem__btn}
             type="button"
           >
-            <img
-              className={s.shoppingCartItem__icon}
-              src="/images/icon/decrement.svg"
-              alt="decrement"
-            />
+            <img className={s.shoppingCartItem__icon} src={decrement} alt="decrement" />
           </button>
           <span className={s.shoppingCartItem__count}>{count}</span>
           <button
@@ -64,11 +63,7 @@ export const ShoppingCartItem = ({ item }: ShoppingCartItemPropsType) => {
             className={s.shoppingCartItem__btn}
             type="button"
           >
-            <img
-              className={s.shoppingCartItem__icon}
-              src="/images/icon/increment.svg"
-              alt="increment"
-            />
+            <img className={s.shoppingCartItem__icon} src={increment} alt="increment" />
           </button>
         </div>
 
@@ -81,11 +76,7 @@ export const ShoppingCartItem = ({ item }: ShoppingCartItemPropsType) => {
             className={s.shoppingCartItem__btn}
             type="button"
           >
-            <img
-              className={s.shoppingCartItem__icon}
-              src="/images/icon/delete.svg"
-              alt="delete"
-            />
+            <img className={s.shoppingCartItem__icon} src={deleteIcon} alt="delete" />
           </button>
         </div>
       </div>

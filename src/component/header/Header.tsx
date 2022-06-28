@@ -2,6 +2,7 @@ import React, { useEffect, useRef } from 'react';
 
 import { useLocation } from 'react-router-dom';
 
+import logo from 'assets/images/icon/logo.svg';
 import { Theme } from 'common/thema/Theme';
 import { ButtonCart } from 'component/header/buttonCart/ButtonCart';
 import { Logo } from 'component/header/logo/Logo';

@@ -3,6 +3,9 @@ import React from 'react';
 import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 
+import clear from 'assets/images/icon/clear.svg';
+import returnIcon from 'assets/images/icon/return.svg';
+import shoppingCart from 'assets/images/icon/shopping-cart.svg';
 import { EmptyShoppingCart } from 'component/emptyShoppingCart/EmptyShoppingCart';
 import { ShoppingCartItem } from 'component/shoppingCart/shoppingCartItem/ShoppingCartItem';
 import s from 'component/shoppingCart/style.module.scss';
@@ -33,11 +36,7 @@ export const ShoppingCart = () => {
     <div className={s.shoppingCart}>
       <div className={s.shoppingCart__wrapper_top}>
         <h3 className={s.shoppingCart__title}>
-          <img
-            className={s.shoppingCart__icon}
-            src="/images/icon/shopping-cart.svg"
-            alt="shopping"
-          />
+          <img className={s.shoppingCart__icon} src={shoppingCart} alt="shopping" />
           Кошик
         </h3>
         <button
@@ -45,11 +44,7 @@ export const ShoppingCart = () => {
           type="button"
           className={s.shoppingCart__btn_clear}
         >
-          <img
-            className={s.shoppingCart__icon}
-            src="/images/icon/clear.svg"
-            alt="shopping"
-          />
+          <img className={s.shoppingCart__icon} src={clear} alt="shopping" />
           Очистити кошик
         </button>
       </div>
@@ -74,7 +69,7 @@ export const ShoppingCart = () => {
 
       <div className={s.shoppingCart__wrapper_btn}>
         <Link className={s.shoppingCart__btn_return} to={PathNavigation.PRODUCT}>
-          <img src="/images/icon/return.svg" alt="return" />
+          <img src={returnIcon} alt="return" />
           Повернутися назад
         </Link>
 

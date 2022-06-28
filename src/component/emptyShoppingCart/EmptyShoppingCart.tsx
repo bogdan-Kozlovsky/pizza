@@ -2,6 +2,7 @@ import React from 'react';
 
 import { Link } from 'react-router-dom';
 
+import emptyShoppingCart from 'assets/images/empty-shopping-cart.jpg';
 import s from 'component/emptyShoppingCart/style.module.scss';
 import { PathNavigation } from 'enums/navigation';
 
@@ -16,7 +17,7 @@ export const EmptyShoppingCart = () => (
 
     <img
       className={s.emptyShoppingCart__img}
-      src="/images/empty-shopping-cart.jpg"
+      src={emptyShoppingCart}
       alt="empty-shopping-cart"
     />
 

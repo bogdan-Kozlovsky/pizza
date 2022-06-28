@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 
 import { useDispatch } from 'react-redux';
 
+import arrow from 'assets/images/icon/arrow.svg';
 import { ModalItem } from 'component/sort/modal/modalitem/ModalItem';
 import s from 'component/sort/modal/style.module.scss';
 import { ActiveItemSortModalType, ModalPropsType } from 'component/sort/modal/types';
@@ -35,7 +36,7 @@ export const Modal = (props: ModalPropsType) => {
     <div role="presentation" className={s.modal} onClick={e => e.stopPropagation()}>
       <img
         className={`${s.modal__decor} ${isVisible ? s.modal__decor_reverse : ''}`}
-        src="/images/icon/arrow.svg"
+        src={arrow}
         alt="arrow"
       />
       <p className={s.modal__description}>Сортування за:</p>
