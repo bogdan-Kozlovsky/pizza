@@ -1,15 +1,28 @@
 {
   "files": {
     "main.css": "/pizza/static/css/main.b6ec0a83.css",
-    "main.js": "/pizza/static/js/main.01fccf5e.js",
+    "main.js": "/pizza/static/js/main.3198dd0a.js",
     "static/js/787.3a33840f.chunk.js": "/pizza/static/js/787.3a33840f.chunk.js",
+    "static/media/empty-shopping-cart.jpg": "/pizza/static/media/empty-shopping-cart.cace21c25c0a14d9cc9f.jpg",
+    "static/media/logo.svg": "/pizza/static/media/logo.cf6d3b6be905864076d6bda85444ef62.svg",
+    "static/media/price.svg": "/pizza/static/media/price.56307fba80641b27800a0c9ed006e7a7.svg",
+    "static/media/search.svg": "/pizza/static/media/search.a2fd3be628cc273be6bb27e448c3ad8d.svg",
+    "static/media/shopping-cart.svg": "/pizza/static/media/shopping-cart.dcd5168086a25b3307ba9f5524ca6e70.svg",
+    "static/media/shopping.svg": "/pizza/static/media/shopping.d05720f2b474db2145233cd2ce1d4e91.svg",
+    "static/media/preloader.svg": "/pizza/static/media/preloader.0aaf07f39acaa32ce036564ce35dba88.svg",
+    "static/media/clear.svg": "/pizza/static/media/clear.ceafcffb34cece0b1462c3505b170d88.svg",
+    "static/media/delete.svg": "/pizza/static/media/delete.2d1f53ca5f3e1ba35446c3613993903b.svg",
     "index.html": "/pizza/index.html",
+    "static/media/increment.svg": "/pizza/static/media/increment.deedb499d2be6beb9d7fb585e3fc39eb.svg",
+    "static/media/arrow.svg": "/pizza/static/media/arrow.8a732a7211d0fa00bfd63712369e29cc.svg",
+    "static/media/decrement.svg": "/pizza/static/media/decrement.f2d124435a62c195bc5cd07306b015f3.svg",
+    "static/media/return.svg": "/pizza/static/media/return.fc29ec73901b6f8218c91a0d69592416.svg",
     "main.b6ec0a83.css.map": "/pizza/static/css/main.b6ec0a83.css.map",
-    "main.01fccf5e.js.map": "/pizza/static/js/main.01fccf5e.js.map",
+    "main.3198dd0a.js.map": "/pizza/static/js/main.3198dd0a.js.map",
     "787.3a33840f.chunk.js.map": "/pizza/static/js/787.3a33840f.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.b6ec0a83.css",
-    "static/js/main.01fccf5e.js"
+    "static/js/main.3198dd0a.js"
   ]
 }
