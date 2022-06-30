@@ -25,9 +25,6 @@ const cart = createSlice({
           count: 1,
         });
       }
-
-      // eslint-disable-next-line @typescript-eslint/no-magic-numbers
-      // state.totalPrice = state.items.reduce((acc, obj) => obj.price * obj.count + acc, 0);
       state.totalPrice = calcTotalPrice(state.items);
     },
     decrementItem(state, action: PayloadAction<number>) {
@@ -35,7 +32,6 @@ const cart = createSlice({
       if (findItem) {
         findItem.count--;
       }
-      // eslint-disable-next-line @typescript-eslint/no-magic-numbers
       state.totalPrice = calcTotalPrice(state.items);
     },
     removeItem(state, action: PayloadAction<number>) {

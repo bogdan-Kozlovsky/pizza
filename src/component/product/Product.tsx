@@ -26,8 +26,7 @@ export const Product = (props: ProductPropsType) => {
   const itemCategoryIndex = useAppSelector(selectCategoryIndex);
   const itemSortModal = useAppSelector(selectSortModal);
 
-  const [activeIndexPagination, setActiveIndexPagination] =
-    useState<number>(INITIAL_VALUES);
+  const [activeIndexPagination, setActiveIndexPagination] = useState(INITIAL_VALUES);
 
   const isSortBy = itemSortModal.sortProperty.replace('-', '');
   const isOrder = itemSortModal.sortProperty.includes('-') ? 'asc' : 'desc';

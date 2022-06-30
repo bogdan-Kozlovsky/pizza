@@ -9,7 +9,6 @@ import { PathNavigation } from 'enums/navigation';
 export const Logo = () => (
   <Link className={s.logo} to={PathNavigation.PRODUCT}>
     <img className={s.logo__icon} src={logo} alt="logo" />
-    {/* <img className={s.logo__icon} src="/images/icon/arrow.svg" alt="logo" /> */}
     <div className={s.logo__wrap}>
       <h3>Pizza</h3>
       <span>найсмачніша піца у всесвіті</span>

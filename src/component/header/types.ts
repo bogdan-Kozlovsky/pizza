@@ -7,3 +7,7 @@ export type HeaderPropsType = {
   theme: string;
   toggleTheme: () => void;
 };
+
+export type CloseSearchPropsType = {
+  onClearClick: () => void;
+};

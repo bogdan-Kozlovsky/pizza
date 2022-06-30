@@ -1,20 +1,17 @@
 import React from 'react';
 
-type ButtonCategoryPropsType = {
-  onCloseCategoryClick: () => void;
-  valueButtonCategory: string;
-};
+import { ButtonCategoryPropsType } from 'component/sort/buttonCategory/types';
 
-export const ButtonCategory = ({
-  onCloseCategoryClick,
-  valueButtonCategory,
-}: ButtonCategoryPropsType) => (
-  <button onClick={onCloseCategoryClick} type="button" className="btnClose">
-    {valueButtonCategory}
-    <div className="isClose">
-      <span />
-      <span />
-      <span />
-    </div>
-  </button>
-);
+export const ButtonCategory = (props: ButtonCategoryPropsType) => {
+  const { onCloseCategoryClick, valueButtonCategory } = props;
+  return (
+    <button onClick={onCloseCategoryClick} type="button" className="btnClose">
+      {valueButtonCategory}
+      <div className="isClose">
+        <span />
+        <span />
+        <span />
+      </div>
+    </button>
+  );
+};

@@ -3,12 +3,12 @@ import React from 'react';
 import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 
-import clear from 'assets/images/icon/clear.svg';
 import returnIcon from 'assets/images/icon/return.svg';
-import shoppingCart from 'assets/images/icon/shopping-cart.svg';
 import { EmptyShoppingCart } from 'component/emptyShoppingCart/EmptyShoppingCart';
 import { ShoppingCartItem } from 'component/shoppingCart/shoppingCartItem/ShoppingCartItem';
 import s from 'component/shoppingCart/style.module.scss';
+import { WrapperDescription } from 'component/shoppingCart/WrapperDescription';
+import { WrapperTop } from 'component/shoppingCart/wrapperTop/WrapperTop';
 import { PathNavigation } from 'enums/navigation';
 import { useAppSelector } from 'hooks/useAppSelector';
 import { selectItemsProduct, selectTotalPrice } from 'store/cart/selectors';
@@ -34,20 +34,7 @@ export const ShoppingCart = () => {
 
   return (
     <div className={s.shoppingCart}>
-      <div className={s.shoppingCart__wrapper_top}>
-        <h3 className={s.shoppingCart__title}>
-          <img className={s.shoppingCart__icon} src={shoppingCart} alt="shopping" />
-          Кошик
-        </h3>
-        <button
-          onClick={onClearItemsClick}
-          type="button"
-          className={s.shoppingCart__btn_clear}
-        >
-          <img className={s.shoppingCart__icon} src={clear} alt="shopping" />
-          Очистити кошик
-        </button>
-      </div>
+      <WrapperTop onClearItemsClick={onClearItemsClick} />
 
       <div className={s.shoppingCart__wrapper}>
         {itemsProduct.map(item => (
@@ -57,15 +44,7 @@ export const ShoppingCart = () => {
         ))}
       </div>
 
-      <div className={s.shoppingCart__wrapper_description}>
-        <span className={s.shoppingCart__span}>
-          Всього піц:{' '}
-          <span className={s.shoppingCart__black}>{itemsProduct.length} шт.</span>
-        </span>
-        <span className={s.shoppingCart__span}>
-          Сума замовлення: <span className={s.shoppingCart__orange}>{totalPrice} </span>ua
-        </span>
-      </div>
+      <WrapperDescription />
 
       <div className={s.shoppingCart__wrapper_btn}>
         <Link className={s.shoppingCart__btn_return} to={PathNavigation.PRODUCT}>
